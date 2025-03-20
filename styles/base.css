@@ -92,17 +92,29 @@ footer {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
+    nav {
+        position: relative; /* Ensure absolute positioning works */
+    }
+    
     nav ul {
         flex-direction: column;
-        display: none;
+        display: none; /* Initially hidden */
         position: absolute;
         background-color: #6388c1;
         width: 100%;
         left: 0;
-        top: 60px;
+        top: 60px; /* Adjust based on nav height */
         text-align: center;
         padding: 10px 0;
+        z-index: 1000; /* Keep it above other content */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     }
+
+    nav ul.show { /* Class to toggle visibility via JS */
+        display: flex;
+    }
+}
+
 
     nav ul li {
         margin: 10px 0;

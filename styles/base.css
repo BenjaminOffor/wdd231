@@ -84,7 +84,7 @@ main {
 /* Footer */
 footer {
     background-color: #222;
-    color: white;
+    color: rgba(255, 255, 255, 0.833);
     text-align: center;
     padding: 15px;
     margin-top: 20px;
@@ -96,7 +96,7 @@ footer {
         flex-direction: column;
         display: none;
         position: absolute;
-        background-color: #222;
+        background-color: #6388c1;
         width: 100%;
         left: 0;
         top: 60px;

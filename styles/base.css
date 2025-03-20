@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    color: #333;
+    color: #4d27e7;
     
 }
 
@@ -84,7 +84,7 @@ main {
 
 /* Footer */
 footer {
-    background-color: #222;
+    background-color: #14087d;
     color: rgba(255, 255, 255, 0.833);
     text-align: center;
     padding: 15px;
@@ -101,7 +101,7 @@ footer {
         flex-direction: column;
         display: none; /* Initially hidden */
         position: absolute;
-        background-color: #6388c1;
+        background-color: #0c3c84;
         width: 100%;
         left: 0;
         top: 60px; /* Adjust based on nav height */

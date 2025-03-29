@@ -60,10 +60,18 @@ button {
     border-radius: 50%;
 }
 
-.grid-view {
+/* Default List View */
+.members-container.list-view {
+    display: block;
+}
+
+/* Grid View */
+.members-container.grid-view {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
 }
 
 footer {

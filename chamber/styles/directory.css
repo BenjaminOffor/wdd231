@@ -65,6 +65,23 @@ button {
     display: block;
 }
 
+.members-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusts to screen size */
+    gap: 20px; /* Space between grid items */
+    justify-content: center; /* Centers the grid */
+    padding: 20px;
+}
+
+/* Ensure individual items are styled properly */
+.member-item {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
 /* Grid View */
 .members-container.grid-view {
     display: grid;

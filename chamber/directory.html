@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official Chamber of Commerce Directory">
+    <meta name="author" content="Benjamin Offor">
+    <title>Chamber of Commerce Directory</title>
+    <link rel="stylesheet" href="styles/directory.css">
+    <script defer src="scripts/directory.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Chamber of Commerce Directory</h1>
+        <p>Your trusted source for business networking and opportunities.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <button id="toggleView">Switch to Grid View</button>
+        <section id="directory" class="list-view">
+            <!-- Business members will be loaded here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Chamber of Commerce. All Rights Reserved.</p>
+        <p>Contact us at: info@chamberofcommerce.com | Phone: +233 24 851 5462</p>
+        <p id="last-modified"></p>
+    </footer>
+
+    <script>
+        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+        document.getElementById("last-modified").textContent = `Last updated: ${document.lastModified}`;
+    </script>
+</body>
+</html>

@@ -36,39 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    toggleButton.addEventListener("click", () => {
-        directoryContainer.classList.toggle("grid-view");
-    
-        if (directoryContainer.classList.contains("grid-view")) {
-            toggleButton.textContent = "Switch to List View";
-        } else {
-            toggleButton.textContent = "Switch to Grid View";
-        }
-    });
-    
+    // Toggle View Button: Grid ↔ List
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            directoryContainer.classList.toggle("grid-view");
 
-// Ensure the DOM is fully loaded before running the script
-document.addEventListener("DOMContentLoaded", function () {
-    // Get the buttons
-    const gridBtn = document.querySelector("#gridViewBtn");
-    const listBtn = document.querySelector("#listViewBtn");
-    const membersContainer = document.querySelector(".members-container");
-
-    // Check if elements exist before adding event listeners
-    if (gridBtn && listBtn && membersContainer) {
-        // Switch to Grid View
-        gridBtn.addEventListener("click", function () {
-            membersContainer.classList.add("grid-view");
-            membersContainer.classList.remove("list-view");
+            if (directoryContainer.classList.contains("grid-view")) {
+                toggleButton.textContent = "Switch to List View";
+            } else {
+                toggleButton.textContent = "Switch to Grid View";
+            }
         });
-
-        // Switch to List View
-        listBtn.addEventListener("click", function () {
-            membersContainer.classList.add("list-view");
-            membersContainer.classList.remove("grid-view");
-        });
-    } else {
-        console.error("One or more elements are missing in directory.html.");
     }
-});
 
+    // Fetch and display members on page load
+    fetchMembers();
+});

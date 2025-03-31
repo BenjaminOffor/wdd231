@@ -38,10 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toggleButton.addEventListener("click", () => {
         directoryContainer.classList.toggle("grid-view");
+    
+        if (directoryContainer.classList.contains("grid-view")) {
+            toggleButton.textContent = "Switch to List View";
+        } else {
+            toggleButton.textContent = "Switch to Grid View";
+        }
     });
-
-    fetchMembers();
-});
+    
 
 // Ensure the DOM is fully loaded before running the script
 document.addEventListener("DOMContentLoaded", function () {

@@ -1,6 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const directoryContainer = document.getElementById("directory");
-    const toggleButton = document.getElementById("toggleView");
+const directoryContainer = document.querySelector("#directory");
+const toggleButton = document.getElementById("toggleView");
+
+toggleButton.addEventListener("click", () => {
+    directoryContainer.classList.toggle("grid-view");
+
+    if (directoryContainer.classList.contains("grid-view")) {
+        toggleButton.textContent = "Switch to List View";
+    } else {
+        toggleButton.textContent = "Switch to Grid View";
+    }
+});
+
 
     async function fetchMembers() {
         try {

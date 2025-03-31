@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Directory- Chamber of Commerce</title>
+    <title>Directory - Chamber of Commerce</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Official Chamber of Commerce Directory">
     <meta name="author" content="Benjamin Offor">
     <meta property="og:title" content="Chamber of Commerce Directory">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://your-github-username.github.io/wdd231/chamber/images/banner.png">
+    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
     <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/">
     <link rel="stylesheet" href="styles/directory.css">
+    <script defer src="scripts/directory.js"></script>
     <link rel="icon" href="images/favicon.ico">
 </head>
 <body>
     <header>
-        <h1> Welcome to our Directory</h1>
+        <h1>Directory - Chamber of Commerce</h1>
         <p>Your trusted source for business networking and opportunities.</p>
         <nav>
             <ul>
@@ -26,14 +27,23 @@
             </ul>
         </nav>
     </header>
+
     <main>
-        <h2>Our Business Directory</h2>
+        <h1>Business Directory</h1>
         <img src="images/banner.png" alt="Chamber of Commerce Banner">
-        <button id="toggleView">Switch to Grid View</button>
-        <section id="directory" class="members-container list-view">
+
+        <!-- Buttons for switching views -->
+        <div class="view-toggle">
+            <button id="gridViewBtn">Grid View</button>
+            <button id="listViewBtn">List View</button>
+        </div>
+
+        <!-- Directory container -->
+        <section id="directory" class="list-view">
             <!-- Business members will be loaded here -->
         </section>
-    </main>    
+    </main>
+
     <footer>
         <p>&copy; <span id="copyright-year"></span> Chamber of Commerce. All Rights Reserved.</p>
         <p>Contact us at: info@chamberofcommerce.com | Phone: +233 24 851 5462</p>
@@ -44,6 +54,5 @@
         document.getElementById("copyright-year").textContent = new Date().getFullYear();
         document.getElementById("last-modified").textContent = `Last updated: ${document.lastModified}`;
     </script>
-    <script defer src="scripts/directory.js"></script>
 </body>
 </html>

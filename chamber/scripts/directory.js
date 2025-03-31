@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const directoryContainer = document.getElementById("directory");
-    const toggleButton = document.getElementById("toggleView");
+    const gridBtn = document.getElementById("gridViewBtn");
+    const listBtn = document.getElementById("listViewBtn");
 
     async function fetchMembers() {
         try {
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             memberCard.classList.add("member-card");
 
             memberCard.innerHTML = `
-                <img src="images/${member.image}" alt="${member.name}">
+                <img src="images/${member.image}" alt="${member.name}" style="width:100px; height:100px; border-radius: 50%;">
                 <h2>${member.name}</h2>
                 <p><strong>Address:</strong> ${member.address}</p>
                 <p><strong>Phone:</strong> ${member.phone}</p>
@@ -36,19 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Toggle View Button: Grid ↔ List
-    if (toggleButton) {
-        toggleButton.addEventListener("click", () => {
-            directoryContainer.classList.toggle("grid-view");
-
-            if (directoryContainer.classList.contains("grid-view")) {
-                toggleButton.textContent = "Switch to List View";
-            } else {
-                toggleButton.textContent = "Switch to Grid View";
-            }
+    // Ensure buttons exist before adding event listeners
+    if (gridBtn && listBtn && directoryContainer) {
+        gridBtn.addEventListener("click", function () {
+            directoryContainer.classList.add("grid-view");
+            directoryContainer.classList.remove("list-view");
         });
+
+        listBtn.addEventListener("click", function () {
+            directoryContainer.classList.add("list-view");
+            directoryContainer.classList.remove("grid-view");
+        });
+    } else {
+        console.error("One or more elements (gridViewBtn, listViewBtn, directory) are missing in directory.html.");
     }
 
-    // Fetch and display members on page load
     fetchMembers();
 });

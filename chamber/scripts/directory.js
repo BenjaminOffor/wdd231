@@ -71,3 +71,4 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("One or more elements are missing in directory.html.");
     }
 });
+

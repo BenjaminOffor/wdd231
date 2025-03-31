@@ -88,3 +88,9 @@ nav ul li a {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }
+footer {
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    text-align: center;
+    padding: 15px 0;
+}

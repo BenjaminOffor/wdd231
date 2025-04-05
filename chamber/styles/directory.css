@@ -94,3 +94,66 @@ footer {
     text-align: center;
     padding: 15px 0;
 }
+
+/* Base layout for mobile-first design */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    background-color: #003366;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Grid or Flex for Spotlights Section */
+.spotlight-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+/* Media Query for larger screens */
+@media (min-width: 768px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .spotlight-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .hero-img {
+        max-width: 50%;
+        height: auto;
+    }
+
+    .hero-text {
+        max-width: 45%;
+    }
+}

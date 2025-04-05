@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Ghana Chamber of Commerce</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to the Ghana Chamber of Commerce - Connecting businesses across Ghana.">
+    <meta name="author" content="Benjamin Offor">
+    <meta property="og:title" content="Ghana Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
+    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/">
+    <link rel="stylesheet" href="styles/directory.css">
+    <script defer src="scripts/weather.js"></script>
+    <script defer src="scripts/spotlights.js"></script>
+    <link rel="icon" href="images/favicon.ico">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="images/hero.jpg" alt="Business in Ghana" class="hero-img">
+            <div class="hero-text">
+                <h1>Welcome to the Ghana Chamber of Commerce</h1>
+                <p>Empowering local businesses. Connecting global opportunities.</p>
+                <a class="cta-button" href="join.html">Join the Chamber</a>
+            </div>
+        </section>
+
+        <section class="events">
+            <h2>Upcoming Events</h2>
+            <ul>
+                <li><strong>Business Expo Accra 2025</strong> – May 12-14, 2025</li>
+                <li><strong>Trade and Investment Forum</strong> – June 5, 2025</li>
+            </ul>
+        </section>
+
+        <section class="weather">
+            <h2>Current Weather in Accra</h2>
+            <div id="weather-info">
+                <!-- Weather data inserted by weather.js -->
+                <p>Loading weather...</p>
+            </div>
+        </section>
+
+        <section class="spotlights">
+            <h2>Business Spotlights</h2>
+            <div class="spotlight-container" id="spotlight-container">
+                <!-- Spotlight businesses will load here via JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
+        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
+        <p id="last-modified"></p>
+    </footer>
+
+    <script>
+        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+        document.getElementById("last-modified").textContent = `Last updated: ${document.lastModified}`;
+    </script>
+</body>
+</html>

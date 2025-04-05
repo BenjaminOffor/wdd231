@@ -1,50 +1,82 @@
 document.addEventListener("DOMContentLoaded", () => {
     const directoryContainer = document.getElementById("directory");
+    const spotlightContainer = document.getElementById("spotlight"); // Add this container in your HTML
     const gridBtn = document.getElementById("gridViewBtn");
     const listBtn = document.getElementById("listViewBtn");
 
     async function fetchMembers() {
         try {
             const response = await fetch("scripts/members.json");
-            if (!response.ok) {
-                throw new Error("Failed to load member data.");
-            }
+            if (!response.ok) throw new Error("Failed to load member data.");
+
             const members = await response.json();
             displayMembers(members);
+            displaySpotlights(members); // New: for dynamic spotlights!
         } catch (error) {
-            directoryContainer.innerHTML = `<p class="error">Failed to load member data. Please try again later.</p>`;
+            const errorMsg = `<p class="error">Failed to load member data. Please try again later.</p>`;
+            if (directoryContainer) directoryContainer.innerHTML = errorMsg;
+            if (spotlightContainer) spotlightContainer.innerHTML = errorMsg;
             console.error("Error fetching member data:", error);
         }
     }
 
     function displayMembers(members) {
+        if (!directoryContainer) return;
         directoryContainer.innerHTML = "";
 
         members.forEach(member => {
-            const memberCard = document.createElement("div");
-            memberCard.classList.add("member-card");
-
-            memberCard.innerHTML = `
-                <img src="images/${member.image}" alt="${member.name}" style="width:100px; height:100px; border-radius: 50%;">
-                <h2>${member.name}</h2>
-                <p><strong>Address:</strong> ${member.address}</p>
-                <p><strong>Phone:</strong> ${member.phone}</p>
-                <p><strong>Website:</strong> <a href="${member.website}" target="_blank">${member.website}</a></p>
-                <p class="membership-level">Membership Level: ${member.level}</p>
-            `;
-
+            const memberCard = createMemberCard(member);
             directoryContainer.appendChild(memberCard);
         });
     }
 
-    // Ensure buttons exist before adding event listeners
+    function displaySpotlights(members) {
+        if (!spotlightContainer) return;
+        spotlightContainer.innerHTML = "";
+
+        // Filter Gold or Silver members
+        const premiumMembers = members.filter(member =>
+            member.level === "Gold" || member.level === "Silver"
+        );
+
+        // Randomize and pick 2 or 3
+        const selectedMembers = shuffleArray(premiumMembers).slice(0, 3);
+
+        selectedMembers.forEach(member => {
+            const spotlightCard = createMemberCard(member, true);
+            spotlightContainer.appendChild(spotlightCard);
+        });
+    }
+
+    function createMemberCard(member, isSpotlight = false) {
+        const card = document.createElement("div");
+        card.classList.add(isSpotlight ? "spotlight-card" : "member-card");
+
+        card.innerHTML = `
+            <img src="images/${member.image}" alt="${member.name} Logo" loading="lazy" style="width:100px; height:100px; border-radius:50%;">
+            <h2>${member.name}</h2>
+            <p><strong>Address:</strong> ${member.address}</p>
+            <p><strong>Phone:</strong> <a href="tel:${member.phone}">${member.phone}</a></p>
+            <p><strong>Website:</strong> <a href="${member.website}" target="_blank" rel="noopener noreferrer">${member.website}</a></p>
+            <p class="membership-level">Membership Level: ${member.level}</p>
+        `;
+        return card;
+    }
+
+    function shuffleArray(array) {
+        return array
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value);
+    }
+
     if (gridBtn && listBtn && directoryContainer) {
-        gridBtn.addEventListener("click", function () {
+        gridBtn.addEventListener("click", () => {
             directoryContainer.classList.add("grid-view");
             directoryContainer.classList.remove("list-view");
         });
 
-        listBtn.addEventListener("click", function () {
+        listBtn.addEventListener("click", () => {
             directoryContainer.classList.add("list-view");
             directoryContainer.classList.remove("grid-view");
         });

@@ -54,7 +54,7 @@
         document.getElementById("last-modified").textContent = `Last updated: ${document.lastModified}`;
 
         // Fetch business data from the members.json file
-        fetch('members.json')
+        fetch('scripts/members.json')
             .then(response => response.json())
             .then(members => {
                 const directory = document.getElementById("directory");

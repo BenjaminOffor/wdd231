@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for joining the Ghana Chamber of Commerce. Here's a summary of your application.">
+    <meta name="author" content="Benjamin Offor">
+    <meta property="og:title" content="Thank You for Joining the Ghana Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
+    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/thankyou.html">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Thank You for Joining</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
-            <!-- Include your header and navigation links -->
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -29,10 +41,12 @@
     </main>
 
     <footer>
-        <p>© 2025 Chamber of Commerce</p>
+        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
     </footer>
 
     <script>
+        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+
         // Display form data from URL query parameters
         document.addEventListener("DOMContentLoaded", () => {
             const params = new URLSearchParams(window.location.search);

@@ -1,114 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Meta Tags (Fix for the audit) -->
-    <meta name="description" content="Join the Ghana Chamber of Commerce and become part of a community of influential businesses.">
-    <meta name="author" content="Benjamin Offor">
-    <meta name="keywords" content="Chamber of Commerce, Ghana, Business Network, Join, Membership">
-    
-    <!-- Open Graph Meta Tags for Social Media Sharing -->
-    <meta property="og:title" content="Join the Ghana Chamber of Commerce - Membership Application">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="images/hero.jpg"> <!-- Replace with your image -->
-    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/join.html">
-
-    <title>Chamber of Commerce - Join Our Community</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
-    <!-- CSS File Link -->
-    <link rel="stylesheet" href="styles/directory.css">
-
-    <!-- Inline JavaScript (No External Scripts) -->
-    <script>
-        // JavaScript to handle form submission
-        document.addEventListener("DOMContentLoaded", function() {
-            const form = document.getElementById("membership-form");
-
-            form.addEventListener("submit", function(event) {
-                event.preventDefault(); // Prevents the default form submission
-
-                // Extract form values
-                const name = document.getElementById("name").value;
-                const email = document.getElementById("email").value;
-                const business = document.getElementById("business").value;
-                const membershipCategory = document.getElementById("membership-category").value;
-
-                // Basic Validation (Ensure all fields are filled)
-                if (name && email && business && membershipCategory) {
-                    alert(`Thank you for joining! You selected the ${membershipCategory} membership.`);
-                    // Reset form after submission
-                    form.reset();
-                } else {
-                    alert("Please fill in all fields.");
-                }
-            });
-        });
-    </script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Meta Info -->
+  <meta name="description" content="Join the Ghana Chamber of Commerce and connect with business leaders today." />
+  <meta name="author" content="Your Name Here" />
+  <meta property="og:title" content="Join the Ghana Chamber of Commerce" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/og-image.jpg" />
+  <meta property="og:url" content="https://yourwebsite.com/join" />
+  
+  <title>Chamber of Commerce - Join Our Community</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" />
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/directory.css" />
 </head>
 <body>
 
-<header>
-    <h1>Chamber of Commerce Membership Join Page</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="join.html">Join Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+  <header>
+    <h1>Join the Ghana Chamber of Commerce</h1>
+  </header>
 
-<main>
-    <section class="hero">
-        <h1>Become a Member of the Ghana Chamber of Commerce</h1>
-        <p>Join a community of influential businesses in Ghana. Your membership provides you with opportunities for growth and networking.</p>
-        <a href="#join-form" class="cta-btn">Join Now</a>
-    </section>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </nav>
 
-    <section id="join-form" class="section">
-        <h2>Membership Application</h2>
-        <form id="membership-form" action="thankyou.html" method="POST">
-            <!-- Full Name Input -->
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required>
+  <main>
+    <h1>Join the Ghana Chamber of Commerce</h1>
 
-            <!-- Email Input -->
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
+    <form action="thankyou.html" method="post">
+      <!-- Full Name -->
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
 
-            <!-- Business Name Input -->
-            <label for="business">Business Name</label>
-            <input type="text" id="business" name="business" required>
+      <!-- Email -->
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required />
 
-            <!-- Membership Category Select -->
-            <label for="membership-category">Select Membership Type</label>
-            <select id="membership-category" name="membership-category" required>
-                <option value="gold">Gold Membership</option>
-                <option value="silver">Silver Membership</option>
-                <option value="bronze">Bronze Membership</option>
-            </select>
+      <!-- Phone -->
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required />
 
-            <!-- Telephone Input (Now Added) -->
-            <label for="telephone">Telephone Number</label>
-            <input type="tel" id="telephone" name="telephone" required>
+      <!-- Organization -->
+      <label for="organization">Organization Name:</label>
+      <input type="text" id="organization" name="organization" required />
 
-            <!-- Hidden Input (Not Required, but added for example) -->
-            <input type="hidden" name="source" value="web">
+      <!-- Membership Level -->
+      <label for="membership">Membership Level:</label>
+      <select id="membership" name="membership" required>
+        <option value="">Select Level</option>
+        <option value="non-profit">Non-Profit (Free)</option>
+        <option value="bronze">Bronze Membership</option>
+        <option value="silver">Silver Membership</option>
+        <option value="gold">Gold Membership</option>
+      </select>
 
-            <input type="submit" value="Submit Application">
-        </form>
-    </section>
-</main>
+      <!-- Description -->
+      <label for="description">Business/Organization Description:</label>
+      <textarea id="description" name="description" rows="4" required></textarea>
 
-<footer>
-    <p>&copy; 2025 Ghana Chamber of Commerce</p>
-</footer>
+      <!-- Hidden Field -->
+      <input type="hidden" name="submissionDate" id="submissionDate" />
+
+      <!-- Submit -->
+      <button type="submit">Join Now</button>
+    </form>
+
+    <!-- Inline JS for Hidden Field -->
+    <script>
+      document.getElementById('submissionDate').value = new Date().toISOString();
+    </script>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ghana Chamber of Commerce. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>

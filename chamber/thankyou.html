@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Thank you for joining the Ghana Chamber of Commerce. We're excited to have you as a member!">
-    <meta name="author" content="Benjamin Offor">
-    <title>Chamber of Commerce - Thank You for Joining</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- Meta Info -->
+  <meta name="description" content="Thank you for joining the Ghana Chamber of Commerce!" />
+  <meta name="author" content="Your Name Here" />
+  <meta property="og:title" content="Thank You - Ghana Chamber of Commerce" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/og-image.jpg" />
+  <meta property="og:url" content="https://yourwebsite.com/thankyou" />
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Chamber of Commerce - Thank You for Joining">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="images/thankyou-og-image.jpg"> <!-- Replace with a relevant image -->
-    <meta property="og:url" content="https://www.yoursite.com/thankyou">
+  <title>Thank You - Ghana Chamber of Commerce</title>
 
-    <!-- Link to CSS file -->
-    <link rel="stylesheet" href="styles/directory.css">
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" />
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/directory.css" />
 </head>
 <body>
 
-<header>
-    <h1>Thank You for Joining the Ghana Chamber of Commerce</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="join.html">Join Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+  <header>
+    <h1>Thank You for Joining Us!</h1>
+  </header>
 
-<main>
-    <section class="hero">
-        <h1>Welcome to the Chamber!</h1>
-        <p>Thank you for becoming a member of the Ghana Chamber of Commerce. We are excited to have you on board!</p>
-        <a href="members-area.html" class="cta-btn">Visit Member Area</a>
-    </section>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </nav>
 
+  <main>
     <section class="section">
-        <h2>Next Steps</h2>
-        <p>Your membership is now active. Please explore the member area and stay tuned for upcoming events and news!</p>
+      <h2>Welcome to the Ghana Chamber of Commerce!</h2>
+      <p>We appreciate your interest in joining our vibrant community of professionals and businesses.</p>
+      <p>Your membership application has been received successfully. We will review your submission and get back to you shortly.</p>
+      <p>Meanwhile, feel free to explore more about what we offer:</p>
+      <ul>
+        <li><a href="index.html">Discover our initiatives</a></li>
+        <li><a href="directory.html">Browse our member directory</a></li>
+      </ul>
     </section>
-</main>
+  </main>
 
-<footer>
-    <p>&copy; 2025 Ghana Chamber of Commerce</p>
-</footer>
+  <footer>
+    <p>&copy; <span id="year"></span> Ghana Chamber of Commerce. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Update year dynamically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>

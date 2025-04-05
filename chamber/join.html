@@ -1,79 +1,112 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join the Ghana Chamber of Commerce and unlock a world of business opportunities.">
-    <meta name="author" content="Benjamin Offor">
-    <meta property="og:title" content="Join the Ghana Chamber of Commerce">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
-    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/join.html">
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="styles/directory.css">
-    <title>Chamber Membership Application</title>
+    <title>Chamber Membership Join Page</title>
+    <link rel="stylesheet" href="styles/directory.css"> <!-- Link to directory.css -->
+    <script src="scripts/directory.js" defer></script>
 </head>
 <body>
+
+    <!-- Header -->
     <header>
+        <h1>Chamber of Commerce Membership Application</h1>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="directory.html">Directory</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="join.html">Join</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Main Form Section -->
     <main>
-        <h1>Apply to Join the Ghana Chamber of Commerce</h1>
-        <p>Become part of a thriving network of businesses and take your organization to new heights.</p>
+        <h2>Membership Application Form</h2>
+        <form action="thankyou.html" method="get">
+            <!-- First Name -->
+            <label for="first-name">
+                First Name:
+                <input type="text" id="first-name" name="first-name" required autocomplete="given-name" title="Enter your first name">
+            </label><br>
 
-        <form action="thankyou.html" method="GET">
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" required>
-        
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" required>
-        
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required>
-        
-            <label for="orgName">Organization Name:</label>
-            <input type="text" id="orgName" name="orgName" required>
-        
-            <label for="membershipLevel">Membership Level:</label>
-            <select id="membershipLevel" name="membershipLevel" required>
-                <option value="" disabled selected>Select a Membership Level</option>
-                <option value="np">NP Membership</option>
-                <option value="bronze">Bronze Membership</option>
-                <option value="silver">Silver Membership</option>
-                <option value="gold">Gold Membership</option>
-            </select>
-        
-            <label for="comments">Additional Comments:</label>
-            <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
-        
-            <input type="hidden" name="timestamp" id="timestamp">
-            <script>
-                document.getElementById('timestamp').value = new Date().toISOString();
-            </script>
-        
-            <button type="submit">Submit Membership Application</button>
-        </form>        
+            <!-- Last Name -->
+            <label for="last-name">
+                Last Name:
+                <input type="text" id="last-name" name="last-name" required autocomplete="family-name" title="Enter your last name">
+            </label><br>
+
+            <!-- Organizational Title -->
+            <label for="title">
+                Organizational Title:
+                <input type="text" id="title" name="title" required autocomplete="organization-title" pattern="[A-Za-z\s\-]{7,}" title="Enter your organizational title (minimum 7 characters)">
+            </label><br>
+
+            <!-- Email -->
+            <label for="email">
+                Email:
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="example@domain.com" title="Enter your email address">
+            </label><br>
+
+            <!-- Mobile Phone -->
+            <label for="phone">
+                Mobile Phone:
+                <input type="tel" id="phone" name="phone" required autocomplete="tel" title="Enter your mobile number">
+            </label><br>
+
+            <!-- Business Name -->
+            <label for="business-name">
+                Business/Organization Name:
+                <input type="text" id="business-name" name="business-name" required autocomplete="organization" title="Enter the name of your business/organization">
+            </label><br>
+
+            <!-- Membership Level Selection -->
+            <label for="membership-level">
+                Membership Level:
+                <select id="membership-level" name="membership-level" required>
+                    <option value="np">NP Membership (Non-profit)</option>
+                    <option value="bronze">Bronze Membership</option>
+                    <option value="silver">Silver Membership</option>
+                    <option value="gold">Gold Membership</option>
+                </select>
+            </label><br>
+
+            <!-- Business Description -->
+            <label for="business-description">
+                Business/Organization Description:
+                <textarea id="business-description" name="business-description" title="Provide a brief description of your business/organization" required></textarea>
+            </label><br>
+
+            <!-- Timestamp (Hidden) -->
+            <input type="hidden" id="timestamp" name="timestamp" value="2025-04-05T10:00:00Z">
+
+            <!-- Submit Button -->
+            <input type="submit" value="Submit Application">
+        </form>
+
+        <!-- Membership Level Cards (with modals) -->
+        <section class="membership-cards">
+            <div class="card" id="np-card">
+                <h3>NP Membership</h3>
+                <button class="modal-btn" data-target="#np-modal">View Benefits</button>
+                <div class="modal" id="np-modal">
+                    <div class="modal-content">
+                        <span class="close-btn">&times;</span>
+                        <p>Non-profit organizations get exclusive event access.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Membership Cards -->
+            <!-- Repeat this structure for Bronze, Silver, and Gold cards -->
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
-        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
+        <p>© 2025 Chamber of Commerce. All Rights Reserved.</p>
     </footer>
 
-    <script src="scripts/directory.js"></script>
-    <script>
-        document.getElementById("copyright-year").textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>

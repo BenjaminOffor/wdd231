@@ -1,63 +1,40 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Thank you for joining the Ghana Chamber of Commerce. Here's a summary of your application.">
-    <meta name="author" content="Benjamin Offor">
-    <meta property="og:title" content="Thank You for Joining the Ghana Chamber of Commerce">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
-    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/thankyou.html">
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="styles/directory.css">
-    <title>Thank You for Joining</title>
+    <title>Thank You for Joining the Chamber</title>
+    <link rel="stylesheet" href="styles/directory.css"> <!-- Link to directory.css -->
 </head>
 <body>
+
+    <!-- Header -->
     <header>
+        <h1>Thank You for Your Application!</h1>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="directory.html">Directory</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="join.html">Join</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Main Thank You Section -->
     <main>
-        <h1>Thank You for Joining!</h1>
-        <p>We appreciate your interest in becoming a member of our Chamber of Commerce. Here's a summary of your application:</p>
-
-        <ul>
-            <li><strong>First Name:</strong> <span id="firstNameDisplay"></span></li>
-            <li><strong>Last Name:</strong> <span id="lastNameDisplay"></span></li>
-            <li><strong>Email:</strong> <span id="emailDisplay"></span></li>
-            <li><strong>Phone:</strong> <span id="phoneDisplay"></span></li>
-            <li><strong>Organization Name:</strong> <span id="orgNameDisplay"></span></li>
-            <li><strong>Membership Level:</strong> <span id="membershipDisplay"></span></li>
-            <li><strong>Application Submitted At:</strong> <span id="timestampDisplay"></span></li>
-        </ul>
+        <h2>Your Application Details:</h2>
+        <p><strong>First Name:</strong> <!-- Display first name here --></p>
+        <p><strong>Last Name:</strong> <!-- Display last name here --></p>
+        <p><strong>Email:</strong> <!-- Display email here --></p>
+        <p><strong>Mobile Phone:</strong> <!-- Display phone number here --></p>
+        <p><strong>Business/Organization Name:</strong> <!-- Display business name here --></p>
+        <p><strong>Application Date:</strong> <!-- Display timestamp here --></p>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
+        <p>© 2025 Chamber of Commerce. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        document.getElementById("copyright-year").textContent = new Date().getFullYear();
-
-        // Display form data from URL query parameters
-        document.addEventListener("DOMContentLoaded", () => {
-            const params = new URLSearchParams(window.location.search);
-            document.getElementById('firstNameDisplay').textContent = params.get('firstName');
-            document.getElementById('lastNameDisplay').textContent = params.get('lastName');
-            document.getElementById('emailDisplay').textContent = params.get('email');
-            document.getElementById('phoneDisplay').textContent = params.get('phone');
-            document.getElementById('orgNameDisplay').textContent = params.get('orgName');
-            document.getElementById('membershipDisplay').textContent = params.get('membershipLevel');
-            document.getElementById('timestampDisplay').textContent = params.get('timestamp');
-        });
-    </script>
 </body>
 </html>

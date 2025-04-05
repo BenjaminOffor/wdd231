@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Apply to become a member of the Ghana Chamber of Commerce and connect with business opportunities, resources, and growth.">
-    <meta name="author" content="Ghana Chamber of Commerce">
-    <meta property="og:title" content="Apply for Membership to the Ghana Chamber of Commerce">
+    <meta name="description" content="Join the Ghana Chamber of Commerce and unlock a world of business opportunities.">
+    <meta name="author" content="Benjamin Offor">
+    <meta property="og:title" content="Join the Ghana Chamber of Commerce">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
     <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/join.html">
     <link rel="icon" href="images/favicon.ico">
     <link rel="stylesheet" href="styles/directory.css">
-    <title>Apply for Membership to the Ghana Chamber of Commerce</title>
+    <title>Chamber Membership Application</title>
 </head>
 <body>
     <header>
@@ -56,7 +56,7 @@
             <label for="comments">Additional Comments:</label>
             <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
 
-            <input type="hidden" name="timestamp" value="">
+            <input type="hidden" name="timestamp" value="{{timestamp}}">
 
             <button type="submit">Submit Membership Application</button>
         </form>
@@ -71,7 +71,6 @@
     <script src="scripts/directory.js"></script>
     <script>
         document.getElementById("copyright-year").textContent = new Date().getFullYear();
-        document.querySelector('[name="timestamp"]').value = new Date().toISOString();  // Set the timestamp value dynamically
     </script>
 </body>
 </html>

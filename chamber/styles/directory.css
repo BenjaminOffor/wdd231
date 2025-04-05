@@ -198,6 +198,7 @@ footer {
 
     .hero {
         padding: 4rem 2rem;
+        background-color: #004080; /* Fallback color */
     }
 
     .hero h1 {

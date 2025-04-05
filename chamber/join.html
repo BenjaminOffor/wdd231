@@ -32,19 +32,19 @@
         <form action="thankyou.html" method="GET">
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required>
-
+        
             <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" name="lastName" required>
-
+        
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-
+        
             <label for="phone">Phone:</label>
             <input type="tel" id="phone" name="phone" required>
-
+        
             <label for="orgName">Organization Name:</label>
             <input type="text" id="orgName" name="orgName" required>
-
+        
             <label for="membershipLevel">Membership Level:</label>
             <select id="membershipLevel" name="membershipLevel" required>
                 <option value="np">NP Membership</option>
@@ -52,14 +52,17 @@
                 <option value="silver">Silver Membership</option>
                 <option value="gold">Gold Membership</option>
             </select>
-
+        
             <label for="comments">Additional Comments:</label>
             <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
-
-            <input type="hidden" name="timestamp" value="{{timestamp}}">
-
+        
+            <input type="hidden" name="timestamp" id="timestamp">
+            <script>
+                document.getElementById('timestamp').value = new Date().toISOString();
+            </script>
+        
             <button type="submit">Submit Membership Application</button>
-        </form>
+        </form>        
     </main>
 
     <footer>

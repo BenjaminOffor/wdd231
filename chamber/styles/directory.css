@@ -168,8 +168,8 @@ main {
 #directory.grid-view {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
+    gap: 20px;
+    padding: 20px;
 }
 
 #directory.grid-view .member-card {

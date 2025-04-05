@@ -86,3 +86,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetchMembers();
 });
+document.addEventListener("DOMContentLoaded", () => {
+    // Set the timestamp when the page loads
+    document.getElementById("timestamp").value = new Date().toISOString();
+
+    // Code to handle modal behavior
+    const modals = document.querySelectorAll('.modal');
+    const openLinks = document.querySelectorAll('[data-toggle="modal"]');
+
+    openLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            const modalId = event.target.getAttribute('href').substring(1);
+            document.getElementById(modalId).style.display = 'block';
+        });
+    });
+
+    // Close modal functionality
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    // Add close functionality to modals
+    modals.forEach(modal => {
+        const closeButton = modal.querySelector('button');
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    });
+});

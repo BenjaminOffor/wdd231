@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- Meta Info -->
+  <title>Chamber of Commerce - Join Our Community</title>
   <meta name="description" content="Join the Ghana Chamber of Commerce and connect with business leaders today." />
-  <meta name="author" content="Your Name Here" />
+  <meta name="author" content="Benjamin Offor" />
+  
+  <!-- Open Graph -->
   <meta property="og:title" content="Join the Ghana Chamber of Commerce" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="images/og-image.jpg" />
-  <meta property="og:url" content="https://yourwebsite.com/join" />
-  
-  <title>Chamber of Commerce - Join Our Community</title>
+  <meta property="og:url" content="join.html" />
   
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.ico" />
-  
-  <!-- CSS -->
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="styles/directory.css" />
 </head>
+
 <body>
 
   <header>
@@ -35,56 +35,62 @@
   </nav>
 
   <main>
-    <h1>Join the Ghana Chamber of Commerce</h1>
+    <section>
+      <h2>Membership Application Form</h2>
+      <p>Become part of our thriving business community by filling out the form below.</p>
 
-    <form action="thankyou.html" method="post">
-      <!-- Full Name -->
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" name="name" required />
+      <form action="thankyou.html" method="get">
+        <!-- Hidden field -->
+        <input type="hidden" name="membershipLevel" value="applicant" />
 
-      <!-- Email -->
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required />
+        <!-- Full Name -->
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required />
 
-      <!-- Phone -->
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" required />
+        <!-- Business Name -->
+        <label for="businessname">Business Name:</label>
+        <input type="text" id="businessname" name="businessname" required />
 
-      <!-- Organization -->
-      <label for="organization">Organization Name:</label>
-      <input type="text" id="organization" name="organization" required />
+        <!-- Position in Business -->
+        <label for="position">Your Position:</label>
+        <input type="text" id="position" name="position" />
 
-      <!-- Membership Level -->
-      <label for="membership">Membership Level:</label>
-      <select id="membership" name="membership" required>
-        <option value="">Select Level</option>
-        <option value="non-profit">Non-Profit (Free)</option>
-        <option value="bronze">Bronze Membership</option>
-        <option value="silver">Silver Membership</option>
-        <option value="gold">Gold Membership</option>
-      </select>
+        <!-- Business Address -->
+        <label for="address">Business Address:</label>
+        <input type="text" id="address" name="address" required />
 
-      <!-- Description -->
-      <label for="description">Business/Organization Description:</label>
-      <textarea id="description" name="description" rows="4" required></textarea>
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
 
-      <!-- Hidden Field -->
-      <input type="hidden" name="submissionDate" id="submissionDate" />
+        <!-- Phone -->
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required />
 
-      <!-- Submit -->
-      <button type="submit">Join Now</button>
-    </form>
+        <!-- Business Description -->
+        <label for="description">Business Description:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
 
-    <!-- Inline JS for Hidden Field -->
-    <script>
-      document.getElementById('submissionDate').value = new Date().toISOString();
-    </script>
+        <!-- Membership Level -->
+        <label for="membership">Membership Level:</label>
+        <select id="membership" name="membership">
+          <option value="bronze">Bronze</option>
+          <option value="silver">Silver</option>
+          <option value="gold">Gold</option>
+          <option value="platinum">Platinum</option>
+        </select>
 
+        <!-- Submit Button -->
+        <button type="submit">Become a Member</button>
+      </form>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Ghana Chamber of Commerce. All rights reserved.</p>
   </footer>
 
+  <!-- External JS -->
+  <script src="scripts/directory.js"></script>
 </body>
 </html>

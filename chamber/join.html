@@ -31,49 +31,40 @@
 
         <form action="thankyou.html" method="GET">
             <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" required>
-        
+            <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+
             <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" required>
-        
+            <input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
             <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required>
-        
+            <input type="tel" id="phone" name="phone" placeholder="+233 24 123 4567" required pattern="^\+?[0-9\s\-]{7,15}$">
+
             <label for="orgName">Organization Name:</label>
-            <input type="text" id="orgName" name="orgName" required>
-        
+            <input type="text" id="orgName" name="orgName" placeholder="Your organization" required>
+
             <label for="membershipLevel">Membership Level:</label>
             <select id="membershipLevel" name="membershipLevel" required>
+                <option value="">--Please choose an option--</option>
                 <option value="np">NP Membership</option>
                 <option value="bronze">Bronze Membership</option>
                 <option value="silver">Silver Membership</option>
                 <option value="gold">Gold Membership</option>
             </select>
-        
-            <label for="comments">Additional Comments:</label>
-            <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
-        
-            <input type="hidden" name="timestamp" id="timestamp">
-            <script>
-                document.getElementById('timestamp').value = new Date().toISOString();
-            </script>
-        
-            <button type="submit">Submit Membership Application</button>
-        </form>        
+
+            <button type="submit">Submit Application</button>
+        </form>
     </main>
 
     <footer>
-        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
-        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
+        <p>&copy; <span id="year"></span> Ghana Chamber of Commerce. All rights reserved.</p>
     </footer>
 
-    <!-- Link to external JS in the scripts folder -->
-    <script src="scripts/directory.js"></script>
     <script>
-        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+        // Dynamically set the current year
+        document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

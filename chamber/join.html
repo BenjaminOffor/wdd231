@@ -1,80 +1,79 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Join the Ghana Chamber of Commerce and unlock a world of business opportunities." />
-  <meta name="author" content="Benjamin Offor" />
-  <meta property="og:title" content="Join the Ghana Chamber of Commerce" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png" />
-  <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/join.html" />
-  <link rel="icon" href="images/favicon.ico" />
-  <link rel="stylesheet" href="styles/directory.css" />
-  <title>Chamber Membership Application</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the Ghana Chamber of Commerce and unlock a world of business opportunities.">
+    <meta name="author" content="Benjamin Offor">
+    <meta property="og:title" content="Join the Ghana Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
+    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/join.html">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/directory.css">
+    <title>Chamber Membership Application</title>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="directory.html">Directory</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <h1>Apply to Join the Ghana Chamber of Commerce</h1>
-    <p>Become part of a thriving network of businesses and take your organization to new heights.</p>
+    <main>
+        <h1>Apply to Join the Ghana Chamber of Commerce</h1>
+        <p>Become part of a thriving network of businesses and take your organization to new heights.</p>
 
-    <form action="thankyou.html" method="get">
-      <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" name="firstName" placeholder="Your first name" required />
+        <form action="thankyou.html" method="GET">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+        
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+        
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+        
+            <label for="orgName">Organization Name:</label>
+            <input type="text" id="orgName" name="orgName" placeholder="Your organization name" required>
+        
+            <label for="membershipLevel">Membership Level:</label>
+            <select id="membershipLevel" name="membershipLevel" required>
+                <option value="np">NP Membership</option>
+                <option value="bronze">Bronze Membership</option>
+                <option value="silver">Silver Membership</option>
+                <option value="gold">Gold Membership</option>
+            </select>
+        
+            <label for="comments">Additional Comments:</label>
+            <textarea id="comments" name="comments" placeholder="Your additional comments" rows="4" cols="50"></textarea>
+        
+            <input type="hidden" name="timestamp" id="timestamp">
+            <script>
+                document.getElementById('timestamp').value = new Date().toISOString();
+            </script>
+        
+            <button type="submit">Submit Membership Application</button>
+        </form>        
+    </main>
 
-      <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" name="lastName" placeholder="Your last name" required />
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
+        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
+    </footer>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required />
-
-      <label for="phone">Phone:</label>
-      <input
-        type="tel"
-        id="phone"
-        name="phone"
-        placeholder="+233 24 123 4567"
-        required
-        pattern="^\+?[0-9\s\-]{7,15}$"
-      />
-
-      <label for="orgName">Organization Name:</label>
-      <input type="text" id="orgName" name="orgName" placeholder="Organization name" required />
-
-      <label for="membershipLevel">Membership Level:</label>
-      <select id="membershipLevel" name="membershipLevel" required>
-        <option value="">--Select a level--</option>
-        <option value="np">NP Membership</option>
-        <option value="bronze">Bronze Membership</option>
-        <option value="silver">Silver Membership</option>
-        <option value="gold">Gold Membership</option>
-      </select>
-
-      <label for="description">Organization Description:</label>
-      <textarea id="description" name="description" rows="4" placeholder="Brief description about your organization"></textarea>
-
-      <button type="submit">Submit Application</button>
-    </form>
-  </main>
-
-  <footer>
-    <p>&copy; <span id="year"></span> Ghana Chamber of Commerce. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Dynamically set current year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <!-- Link to external JS in the scripts folder -->
+    <script src="scripts/directory.js"></script>
+    <script>
+        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

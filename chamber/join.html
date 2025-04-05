@@ -3,110 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamber Membership Join Page</title>
-    <link rel="stylesheet" href="styles/directory.css"> <!-- Link to directory.css -->
-    <script src="scripts/directory.js" defer></script>
+    <meta name="description" content="Join the Ghana Chamber of Commerce today and become part of a network of influential businesses in Ghana.">
+    <meta name="author" content="Benjamin Offor">
+    <title>Chamber of Commerce - Join Our Community</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Chamber of Commerce - Join Our Community">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/chamber-og-image.jpg"> <!-- Replace with a relevant image -->
+    <meta property="og:url" content="https://www.yoursite.com/join">
+
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="styles/directory.css">
+
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Chamber of Commerce Membership Application</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="join.html">Join</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <h1>Welcome to the Ghana Chamber of Commerce</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="join.html">Join Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- Main Form Section -->
-    <main>
-        <h2>Membership Application Form</h2>
-        <form action="thankyou.html" method="get">
-            <!-- First Name -->
-            <label for="first-name">
-                First Name:
-                <input type="text" id="first-name" name="first-name" required autocomplete="given-name" title="Enter your first name">
-            </label><br>
+<main>
+    <section class="hero">
+        <h1>Join Our Community</h1>
+        <p>Be part of a thriving business network in Ghana.</p>
+        <a href="#join-form" class="cta-btn">Join Now</a>
+    </section>
 
-            <!-- Last Name -->
-            <label for="last-name">
-                Last Name:
-                <input type="text" id="last-name" name="last-name" required autocomplete="family-name" title="Enter your last name">
-            </label><br>
+    <section id="join-form" class="section">
+        <h2>Membership Application</h2>
+        <form action="/submit-membership" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
 
-            <!-- Organizational Title -->
-            <label for="title">
-                Organizational Title:
-                <input type="text" id="title" name="title" required autocomplete="organization-title" pattern="[A-Za-z\s\-]{7,}" title="Enter your organizational title (minimum 7 characters)">
-            </label><br>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
 
-            <!-- Email -->
-            <label for="email">
-                Email:
-                <input type="email" id="email" name="email" required autocomplete="email" placeholder="example@domain.com" title="Enter your email address">
-            </label><br>
+            <label for="business">Business Name</label>
+            <input type="text" id="business" name="business" required>
 
-            <!-- Mobile Phone -->
-            <label for="phone">
-                Mobile Phone:
-                <input type="tel" id="phone" name="phone" required autocomplete="tel" title="Enter your mobile number">
-            </label><br>
+            <label for="membership-category">Select Membership Type</label>
+            <select id="membership-category" name="membership-category" required>
+                <option value="gold">Gold Membership</option>
+                <option value="silver">Silver Membership</option>
+                <option value="bronze">Bronze Membership</option>
+            </select>
 
-            <!-- Business Name -->
-            <label for="business-name">
-                Business/Organization Name:
-                <input type="text" id="business-name" name="business-name" required autocomplete="organization" title="Enter the name of your business/organization">
-            </label><br>
-
-            <!-- Membership Level Selection -->
-            <label for="membership-level">
-                Membership Level:
-                <select id="membership-level" name="membership-level" required>
-                    <option value="np">NP Membership (Non-profit)</option>
-                    <option value="bronze">Bronze Membership</option>
-                    <option value="silver">Silver Membership</option>
-                    <option value="gold">Gold Membership</option>
-                </select>
-            </label><br>
-
-            <!-- Business Description -->
-            <label for="business-description">
-                Business/Organization Description:
-                <textarea id="business-description" name="business-description" title="Provide a brief description of your business/organization" required></textarea>
-            </label><br>
-
-            <!-- Timestamp (Hidden) -->
-            <input type="hidden" id="timestamp" name="timestamp" value="2025-04-05T10:00:00Z">
-
-            <!-- Submit Button -->
             <input type="submit" value="Submit Application">
         </form>
+    </section>
+</main>
 
-        <!-- Membership Level Cards (with modals) -->
-        <section class="membership-cards">
-            <div class="card" id="np-card">
-                <h3>NP Membership</h3>
-                <button class="modal-btn" data-target="#np-modal">View Benefits</button>
-                <div class="modal" id="np-modal">
-                    <div class="modal-content">
-                        <span class="close-btn">&times;</span>
-                        <p>Non-profit organizations get exclusive event access.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Other Membership Cards -->
-            <!-- Repeat this structure for Bronze, Silver, and Gold cards -->
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Chamber of Commerce. All Rights Reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 Ghana Chamber of Commerce</p>
+</footer>
 
 </body>
 </html>

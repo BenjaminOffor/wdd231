@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="directory.html">Directory</a></li>
+                <li><a href="directory.html" class="active">Directory</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -39,7 +39,7 @@
     
         <!-- Directory container -->
         <section id="directory" class="list-view">
-            <!-- Business members will be loaded here -->
+            <!-- Business members will be loaded here dynamically -->
         </section>
     </main>    
 
@@ -52,6 +52,46 @@
     <script>
         document.getElementById("copyright-year").textContent = new Date().getFullYear();
         document.getElementById("last-modified").textContent = `Last updated: ${document.lastModified}`;
+
+        // Fetch business data from the members.json file
+        fetch('members.json')
+            .then(response => response.json())
+            .then(members => {
+                const directory = document.getElementById("directory");
+
+                members.forEach(business => {
+                    const businessCard = document.createElement("div");
+                    businessCard.classList.add("business-card");
+
+                    businessCard.innerHTML = `
+                        <img src="images/${business.image}" alt="${business.name} logo" class="business-logo">
+                        <h3>${business.name}</h3>
+                        <p><strong>Address:</strong> ${business.address}</p>
+                        <p><strong>Phone:</strong> ${business.phone}</p>
+                        <p><strong>Website:</strong> <a href="${business.website}" target="_blank">${business.website}</a></p>
+                        <p><strong>Membership Level:</strong> ${business.level}</p>
+                    `;
+
+                    directory.appendChild(businessCard);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading the JSON file:', error);
+            });
+
+        // View Toggle Functionality
+        const gridViewBtn = document.getElementById("gridViewBtn");
+        const listViewBtn = document.getElementById("listViewBtn");
+
+        gridViewBtn.addEventListener("click", () => {
+            directory.classList.remove("list-view");
+            directory.classList.add("grid-view");
+        });
+
+        listViewBtn.addEventListener("click", () => {
+            directory.classList.remove("grid-view");
+            directory.classList.add("list-view");
+        });
     </script>
 </body>
 </html>

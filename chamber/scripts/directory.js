@@ -1,17 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Directory and spotlight containers
     const directoryContainer = document.getElementById("directory");
-    const spotlightContainer = document.getElementById("spotlight"); // Add this container in your HTML
+    const spotlightContainer = document.getElementById("spotlight");
     const gridBtn = document.getElementById("gridViewBtn");
     const listBtn = document.getElementById("listViewBtn");
 
+    // Modal functionality
+    const modals = document.querySelectorAll('.modal');
+    const openLinks = document.querySelectorAll('[data-toggle="modal"]');
+
+    // Fetch members data
     async function fetchMembers() {
         try {
             const response = await fetch("scripts/members.json");
             if (!response.ok) throw new Error("Failed to load member data.");
-
             const members = await response.json();
             displayMembers(members);
-            displaySpotlights(members); // New: for dynamic spotlights!
+            displaySpotlights(members); // For dynamic spotlights
         } catch (error) {
             const errorMsg = `<p class="error">Failed to load member data. Please try again later.</p>`;
             if (directoryContainer) directoryContainer.innerHTML = errorMsg;
@@ -20,16 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Display members in the directory
     function displayMembers(members) {
         if (!directoryContainer) return;
         directoryContainer.innerHTML = "";
-
         members.forEach(member => {
             const memberCard = createMemberCard(member);
             directoryContainer.appendChild(memberCard);
         });
     }
 
+    // Display spotlight members
     function displaySpotlights(members) {
         if (!spotlightContainer) return;
         spotlightContainer.innerHTML = "";
@@ -48,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Create a member card element
     function createMemberCard(member, isSpotlight = false) {
         const card = document.createElement("div");
         card.classList.add(isSpotlight ? "spotlight-card" : "member-card");
@@ -63,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return card;
     }
 
+    // Shuffle array for random selection
     function shuffleArray(array) {
         return array
             .map(value => ({ value, sort: Math.random() }))
@@ -70,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .map(({ value }) => value);
     }
 
+    // Handle grid/list view toggle
     if (gridBtn && listBtn && directoryContainer) {
         gridBtn.addEventListener("click", () => {
             directoryContainer.classList.add("grid-view");
@@ -84,26 +93,22 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("One or more elements (gridViewBtn, listViewBtn, directory) are missing in directory.html.");
     }
 
-    fetchMembers();
-});
-document.addEventListener("DOMContentLoaded", () => {
-    // Set the timestamp when the page loads
+    // Set timestamp when the page loads
     document.getElementById("timestamp").value = new Date().toISOString();
 
-    // Code to handle modal behavior
-    const modals = document.querySelectorAll('.modal');
-    const openLinks = document.querySelectorAll('[data-toggle="modal"]');
-
+    // Modal behavior
     openLinks.forEach(link => {
         link.addEventListener('click', (event) => {
             const modalId = event.target.getAttribute('href').substring(1);
             document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Lock scrolling when modal is open
         });
     });
 
     // Close modal functionality
     function closeModal(modalId) {
         document.getElementById(modalId).style.display = 'none';
+        document.body.style.overflow = ''; // Restore scrolling when modal is closed
     }
 
     // Add close functionality to modals
@@ -111,6 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const closeButton = modal.querySelector('button');
         closeButton.addEventListener('click', () => {
             modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = ''; // Restore scrolling
         });
     });
+
+    // Call the function to fetch members data
+    fetchMembers();
 });

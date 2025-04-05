@@ -1,75 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Join Chamber</title>
-    <!-- Link to external CSS in the styles folder -->
+    <meta name="description" content="Join the Ghana Chamber of Commerce and unlock a world of business opportunities.">
+    <meta name="author" content="Benjamin Offor">
+    <meta property="og:title" content="Join the Ghana Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
+    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/join.html">
+    <link rel="icon" href="images/favicon.ico">
     <link rel="stylesheet" href="styles/directory.css">
+    <title>Chamber Membership Application</title>
 </head>
-
 <body>
     <header>
         <nav>
-            <!-- Add navigation links here, e.g., Home, About, Contact -->
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="#directory">Directory</a></li>
-                <li><a href="#joinModal" data-toggle="modal">Join</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1>Join the Chamber of Commerce</h1>
+        <h1>Apply to Join the Ghana Chamber of Commerce</h1>
+        <p>Become part of a thriving network of businesses and take your organization to new heights.</p>
 
-        <!-- Directory of members -->
-        <section id="directory">
-            <!-- Member cards will be displayed here dynamically -->
-        </section>
+        <form action="thankyou.html" method="GET">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
 
-        <!-- Spotlight for selected members (Gold/Silver) -->
-        <section id="spotlight">
-            <!-- Spotlight cards will be displayed here dynamically -->
-        </section>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
 
-        <!-- Buttons to toggle between grid and list view -->
-        <div class="view-toggle">
-            <button id="gridViewBtn">Grid View</button>
-            <button id="listViewBtn">List View</button>
-        </div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-        <!-- Modal Section for joining -->
-        <div class="modal" id="joinModal" aria-hidden="true">
-            <div class="modal-content">
-                <button class="close-modal">Close</button>
-                <h2>Join Now</h2>
-                <!-- Form for joining the chamber (This can be expanded later) -->
-                <form action="/join" method="POST">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+            <label for="orgName">Organization Name:</label>
+            <input type="text" id="orgName" name="orgName" required>
 
-                    <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone">
+            <label for="membershipLevel">Membership Level:</label>
+            <select id="membershipLevel" name="membershipLevel" required>
+                <option value="np">NP Membership</option>
+                <option value="bronze">Bronze Membership</option>
+                <option value="silver">Silver Membership</option>
+                <option value="gold">Gold Membership</option>
+            </select>
 
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
+            <input type="hidden" name="timestamp" value="{{timestamp}}">
+
+            <button type="submit">Submit Application</button>
+        </form>
     </main>
 
-    <!-- Footer with dynamic timestamp -->
     <footer>
-        <p>&copy; <span id="timestamp"></span> Chamber of Commerce. All rights reserved.</p>
+        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
+        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
     </footer>
-
-    <!-- Link to external JS file -->
-    <script src="scripts/directory.js"></script>
+    <!-- Link to external JS in the scripts folder -->
+     <script src="scripts/directory.js"></script>
+    <script>
+        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+    </script>
 </body>
-
 </html>

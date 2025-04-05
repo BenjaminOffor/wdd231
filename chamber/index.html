@@ -2,23 +2,129 @@
 <html lang="en">
 <head>
     <title>Home - Ghana Chamber of Commerce</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to the Ghana Chamber of Commerce - Connecting businesses across Ghana.">
-    <meta name="author" content="Benjamin Offor">
-    <meta property="og:title" content="Ghana Chamber of Commerce">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
-    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/">
-    <link rel="stylesheet" href="styles/directory.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Welcome to the Ghana Chamber of Commerce - Connecting businesses across Ghana." />
+    <meta name="author" content="Benjamin Offor" />
+    <meta property="og:title" content="Ghana Chamber of Commerce" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png" />
+    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/" />
+    <link rel="stylesheet" href="styles/directory.css" />
+    <link rel="icon" href="images/favicon.ico" />
     <script defer src="scripts/weather.js"></script>
     <script defer src="scripts/spotlights.js"></script>
-    <link rel="icon" href="images/favicon.ico">
+    <style>
+        /* Navigation styles */
+        nav {
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #menuButton {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: block;
+        }
+
+        #menuLinks {
+            display: none;
+            flex-direction: column;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #menuLinks li {
+            margin: 10px 0;
+        }
+
+        #menuLinks a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #menuLinks a.active {
+            font-weight: bold;
+            border-bottom: 2px solid yellow;
+        }
+
+        @media (min-width: 768px) {
+            #menuButton {
+                display: none;
+            }
+
+            #menuLinks {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #menuLinks li {
+                margin: 0 15px;
+            }
+        }
+
+        /* Hero section */
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .cta-button {
+            background-color: #f39c12;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Weather & Spotlights */
+        .weather, .spotlights, .events {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <nav>
-            <ul>
+            <button id="menuButton" aria-label="Open menu">☰</button>
+            <ul id="menuLinks">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="directory.html">Directory</a></li>
@@ -29,7 +135,7 @@
 
     <main>
         <section class="hero">
-            <img src="images/hero.jpg" alt="Business in Ghana" class="hero-img">
+            <img src="images/hero.jpg" alt="Business in Ghana" class="hero-img" />
             <div class="hero-text">
                 <h1>Welcome to the Ghana Chamber of Commerce</h1>
                 <p>Empowering local businesses. Connecting global opportunities.</p>
@@ -48,33 +154,32 @@
         <section class="weather">
             <h2>Current Weather in Accra</h2>
             <div id="weather-info">
-                <!-- Weather data inserted by weather.js -->
-                <p>Loading weather...</p>
+                <p>Temperature: <span id="weather-temp">Loading...</span></p>
+                <p>Description: <span id="weather-description">Loading...</span></p>
+                <img id="weather-icon" src="" alt="Weather Icon" style="display:none;" />
             </div>
         </section>
 
         <section class="spotlights">
-            <h2>Business Spotlights</h2>
-            <div class="spotlight-container" id="spotlight-container">
-                <!-- Spotlight businesses will load here via JS -->
+            <h2>Company Spotlights</h2>
+            <div id="spotlights-container">
+                <p>Loading spotlight members...</p>
             </div>
         </section>
-        <section id="spotlights">
-            <h3>Business Spotlights</h3>
-            <!-- JS will inject content here -->
-          </section>          
-          
     </main>
 
     <footer>
-        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
-        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
-        <p id="last-modified"></p>
+        <p>&copy; 2025 Ghana Chamber of Commerce. All rights reserved.</p>
     </footer>
 
     <script>
-        document.getElementById("copyright-year").textContent = new Date().getFullYear();
-        document.getElementById("last-modified").textContent = `Last updated: ${document.lastModified}`;
+        // Navigation toggle
+        const menuButton = document.getElementById('menuButton');
+        const menuLinks = document.getElementById('menuLinks');
+
+        menuButton.addEventListener('click', () => {
+            menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
     </script>
 </body>
 </html>

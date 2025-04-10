@@ -11,12 +11,12 @@
     <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
     <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/directory.html">
     <link rel="stylesheet" href="styles/directory.css">
+    <script defer src="scripts/spotlights.js"></script>
     <script defer src="scripts/directory.js"></script>
     <link rel="icon" href="images/favicon.ico">
 </head>
 <body>
     <header>
-        <img src="images/banner.jpg" alt="Ghana Chamber of Commerce Banner" style="width: 100%; height: auto;">
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -25,6 +25,7 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <img src="images/banner.png" alt="Banner" class="banner-image">
     </header>
 
     <main>
@@ -41,32 +42,16 @@
                 <p>Toggle View:</p>
                 <button id="gridViewBtn">Grid View</button>
                 <button id="listViewBtn">List View</button>
-            </div>                                 
-            
-            <!-- Date Display for the Latest Member -->
-            <div id="dateDisplay"></div>
-        </section>
-
-        <section class="directory-listing">
-            <h2>Businesses</h2>
-            <div class="directory" id="directory">
-                <!-- Directory content will be dynamically inserted by JS -->
             </div>
         </section>
 
-        <!-- Spotlight Section -->
-        <section class="spotlight">
-            <h2>Spotlight Members</h2>
-            <div class="spotlight-list" id="spotlight">
-                <!-- Spotlight members will be dynamically inserted by JS -->
-            </div>
-        </section>
+        <section id="spotlight"></section>
+        <section id="directory"></section>
+        <section id="dateDisplay"></section>
     </main>
 
     <footer>
-        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
-        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
-        <p id="last-modified"></p>
+        <p>&copy; 2025 Ghana Chamber of Commerce. All rights reserved.</p>
     </footer>
 </body>
 </html>

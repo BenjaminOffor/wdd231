@@ -241,3 +241,9 @@ footer a:hover {
         font-size: 0.9rem;
     }
 }
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 5px;
+}

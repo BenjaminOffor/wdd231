@@ -24,6 +24,7 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <img src="images/banner.png" alt="Banner" class="banner-image">
     </header>
 
     <main>
@@ -40,69 +41,16 @@
                 <p>Toggle View:</p>
                 <button id="gridViewBtn">Grid View</button>
                 <button id="listViewBtn">List View</button>
-            </div>                                 
-            
-            <!-- Date Display for the Latest Member -->
-            <div id="dateDisplay"></div>
-        </section>
-
-        <section class="directory-listing">
-            <h2>Businesses</h2>
-            <div class="directory" id="directory">
-                <!-- Directory content will be dynamically inserted by JS -->
             </div>
         </section>
 
-        <!-- Spotlight Section -->
-        <section class="spotlight">
-            <h2>Spotlight Members</h2>
-            <div class="spotlight-list" id="spotlight">
-                <!-- Spotlight members will be dynamically inserted by JS -->
-            </div>
-        </section>
+        <section id="spotlight"></section>
+        <section id="directory"></section>
+        <section id="dateDisplay"></section>
     </main>
 
     <footer>
-        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
-        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
-        <p id="last-modified"></p>
+        <p>&copy; 2025 Ghana Chamber of Commerce. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Dynamic Year and Last Modified Date
-        document.getElementById("copyright-year").textContent = new Date().getFullYear();
-        document.getElementById("last-modified").textContent = `Last updated: ${document.lastModified}`;
-
-        // Search functionality
-        document.getElementById("search-btn").addEventListener("click", function() {
-            var searchQuery = document.getElementById("search-input").value.toLowerCase();
-            var directoryItems = document.querySelectorAll(".directory-item");
-
-            directoryItems.forEach(function(item) {
-                var businessName = item.querySelector("h3").textContent.toLowerCase();
-                var category = item.querySelector("p").textContent.toLowerCase();
-                var location = item.querySelectorAll("p")[1].textContent.toLowerCase();
-
-                if (businessName.includes(searchQuery) || category.includes(searchQuery) || location.includes(searchQuery)) {
-                    item.style.display = "block";
-                } else {
-                    item.style.display = "none";
-                }
-            });
-        });
-
-        // Toggle between grid and list view
-        document.getElementById("gridViewBtn").addEventListener("click", function() {
-            var directory = document.getElementById("directory");
-            directory.classList.add("grid-view");
-            directory.classList.remove("list-view");
-        });
-
-        document.getElementById("listViewBtn").addEventListener("click", function() {
-            var directory = document.getElementById("directory");
-            directory.classList.add("list-view");
-            directory.classList.remove("grid-view");
-        });
-    </script>
 </body>
 </html>

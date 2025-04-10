@@ -1,46 +1,50 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chamber of Commerce - Thank You</title>
-  <meta name="description" content="Thank you for joining the Ghana Chamber of Commerce." />
-  <meta name="author" content="Benjamin Offor" />
-  <meta property="og:title" content="Thank You for Joining the Ghana Chamber of Commerce" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/banner.png" />
-  <meta property="og:url" content="thankyou.html" />
-  <link rel="icon" href="images/favicon.ico" />
-  <link rel="stylesheet" href="styles/directory.css">
+    <title>Thank You - Ghana Chamber of Commerce</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for your submission to the Ghana Chamber of Commerce.">
+    <meta name="author" content="Benjamin Offor">
+    <meta property="og:title" content="Thank You - Ghana Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
+    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/thankyou.html">
+    <link rel="stylesheet" href="styles/thankyou.css">
+    <link rel="icon" href="images/favicon.ico">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <header>
-    <h1>Chamber of Commerce - Thank You</h1>
-  </header>
+    <main>
+        <section class="thankyou-section">
+            <h1>Thank You!</h1>
+            <p>Your submission has been successfully received. We appreciate your interest in the Ghana Chamber of Commerce!</p>
+            <p>Our team will review your request and get back to you shortly.</p>
+            <p>If you need further assistance, feel free to <a href="contact.html">contact us</a>.</p>
+            <p><a href="index.html" class="cta-button">Return to Home</a></p>
+        </section>
+    </main>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="directory.html">Directory</a></li>
-      <li><a href="join.html">Join</a></li>
-    </ul>
-  </nav>
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
+        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
+        <p id="last-modified"></p>
+    </footer>
 
-  <main>
-    <section>
-      <h2>Thank You for Joining the Ghana Chamber of Commerce!</h2>
-      <p>We appreciate your commitment to growing the business community in Ghana.</p>
-      <p>We will review your membership details and get back to you shortly.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
-    <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
-    <p id="last-modified"></p>
-  </footer>
-
-  <script src="scripts/directory.js"></script>
+    <script>
+        // Dynamic Year and Last Modified Date
+        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+        document.getElementById("last-modified").textContent = `Last updated: ${document.lastModified}`;
+    </script>
 </body>
 </html>

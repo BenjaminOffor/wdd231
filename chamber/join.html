@@ -1,100 +1,76 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chamber of Commerce - Join Our Community</title>
-  <meta name="description" content="Join the Ghana Chamber of Commerce and connect with business leaders today." />
-  <meta name="author" content="Benjamin Offor" />
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Join the Ghana Chamber of Commerce" />
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
-  <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="images/favicon.ico" />
-
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles/directory.css">
+    <title>Join the Ghana Chamber of Commerce</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the Ghana Chamber of Commerce and connect your business with opportunities across Ghana.">
+    <meta name="author" content="Benjamin Offor">
+    <meta property="og:title" content="Join the Ghana Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
+    <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/join.html">
+    <link rel="stylesheet" href="styles/directory.css">
+    <link rel="icon" href="images/favicon.ico">
 </head>
-
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <header>
-    
-  </header>
+    <main>
+        <section class="join-section">
+            <h1>Join the Ghana Chamber of Commerce</h1>
+            <p>Fill out the form below to become a member and take advantage of the many benefits of being part of the Ghana Chamber of Commerce.</p>
+            
+            <form action="thankyou.html" method="POST" class="join-form">
+                <label for="business-name">Business Name:</label>
+                <input type="text" id="business-name" name="business-name" required>
+                
+                <label for="owner-name">Owner's Name:</label>
+                <input type="text" id="owner-name" name="owner-name" required>
+                
+                <label for="email">Business Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="address">Business Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+                
+                <label for="website">Business Website:</label>
+                <input type="url" id="website" name="website" required>
+                
+                <label for="level">Membership Level:</label>
+                <select id="level" name="level" required>
+                    <option value="basic">Basic</option>
+                    <option value="premium">Premium</option>
+                    <option value="elite">Elite</option>
+                </select>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="directory.html">Directory</a></li>
-      <li><a href="join.html">Join</a></li>
-    </ul>
-  </nav>
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </section>
+    </main>
 
-  <main>
-    <h1>Chamber of Commerce - Join Our Community</h1>
-    <section>
-        <h2>Join the Ghana Chamber of Commerce</h2>
-    <h3>Membership Application Form</h3>
-    <p>Become part of our thriving business community by filling out the form below.</p>
+    <footer>
+        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
+        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
+        <p id="last-modified"></p>
+    </footer>
 
-      <form action="thankyou.html" method="get">
-        <!-- Hidden field -->
-        <input type="hidden" name="membershipLevel" value="applicant" />
-
-        <!-- Full Name -->
-        <label for="fullname">Full Name:</label>
-        <input type="text" id="fullname" name="fullname" required />
-
-        <!-- Business Name -->
-        <label for="businessname">Business Name:</label>
-        <input type="text" id="businessname" name="businessname" required />
-
-        <!-- Position in Business -->
-        <label for="position">Your Position:</label>
-        <input type="text" id="position" name="position" />
-
-        <!-- Business Address -->
-        <label for="address">Business Address:</label>
-        <input type="text" id="address" name="address" required />
-
-        <!-- Email -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-
-        <!-- Phone -->
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required />
-
-        <!-- Business Description -->
-        <label for="description">Business Description:</label>
-        <textarea id="description" name="description" rows="4" required></textarea>
-
-        <!-- Membership Level -->
-        <label for="membership">Membership Level:</label>
-        <select id="membership" name="membership">
-          <option value="bronze">Bronze</option>
-          <option value="silver">Silver</option>
-          <option value="gold">Gold</option>
-          <option value="platinum">Platinum</option>
-        </select>
-
-        <!-- Submit Button -->
-        <button type="submit">Become a Member</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
-    <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
-    <p id="last-modified"></p>
-  </footer>
-
-  <!-- External JS -->
-  <script src="scripts/directory.js"></script>
+    <script>
+        // Dynamic Year and Last Modified Date
+        document.getElementById("copyright-year").textContent = new Date().getFullYear();
+        document.getElementById("last-modified").textContent = `Last updated: ${document.lastModified}`;
+    </script>
 </body>
 </html>

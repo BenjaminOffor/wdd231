@@ -92,13 +92,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetchMembers();
 
+    // Toggle between grid and list view
     gridBtn.addEventListener("click", () => {
-        directoryContainer.classList.add("grid");
-        directoryContainer.classList.remove("list");
+        directoryContainer.classList.add("grid-view");
+        directoryContainer.classList.remove("list-view");
     });
 
     listBtn.addEventListener("click", () => {
-        directoryContainer.classList.add("list");
-        directoryContainer.classList.remove("grid");
+        directoryContainer.classList.add("list-view");
+        directoryContainer.classList.remove("grid-view");
     });
 });

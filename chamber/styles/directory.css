@@ -41,8 +41,7 @@ header nav ul li a {
     transition: background-color 0.3s ease;
 }
 
-header nav ul li a:hover,
-header nav ul li a.active {
+header nav ul li a:hover, header nav ul li a.active {
     background-color: #003366;
     border-radius: 4px;
 }
@@ -88,58 +87,193 @@ header nav ul li a.active {
     color: white;
     font-size: 1.2rem;
     border: none;
-    cursor: pointer;
+    border-radius: 5px;
     margin-top: 1.5rem;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .cta-button:hover {
     background-color: #003366;
 }
 
-/* Logo Styles */
-.member-logo {
-    width: 80px;
-    height: auto;
-    object-fit: contain;
+/* Main Section */
+main {
+    padding: 20px;
+}
+
+/* Directory Section */
+#directory {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+/* Spotlight Section */
+#spotlight {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+/* Business Card Styles */
+.member-card,
+.spotlight-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    transition: all 0.3s ease-in-out;
+}
+
+.member-card:hover,
+.spotlight-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.member-card img,
+.spotlight-card img {
+    width: 80px;           /* Fixed width for logos */
+    height: 80px;          /* Fixed height for logos */
+    object-fit: cover;     /* Ensures the logo covers the box properly */
+    border-radius: 50%;    /* Makes the image circular */
+    margin-bottom: 15px;   /* Space below the logo */
     display: block;
-    margin: 0 auto;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(100%);
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.member-logo:hover {
-    transform: scale(1.1);
-    filter: grayscale(0%) brightness(1.2);
+/* Business Card Text */
+.member-card h3,
+.spotlight-card h3 {
+    font-size: 1.8rem;
+    color: #003366;
+    margin-bottom: 10px;
 }
 
-/* Responsive Logo */
-@media (max-width: 600px) {
-    .member-logo {
-        width: 60px;
+.member-card p,
+.spotlight-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.member-card a,
+.spotlight-card a {
+    color: #004d99;
+    font-weight: 600;
+}
+
+.member-card a:hover,
+.spotlight-card a:hover {
+    text-decoration: underline;
+}
+
+/* View Toggle Button Styles */
+.view-toggle {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.view-toggle button {
+    padding: 0.8rem 2rem;
+    background-color: #004d99;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.view-toggle button:hover {
+    background-color: #003366;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #004d99;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+
+    #directory {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    #spotlight {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .member-card,
+    .spotlight-card {
+        width: 100%;
+        max-width: none;
+    }
+
+    .grid-view .member-card,
+    .grid-view .spotlight-card {
+        width: 100%;
     }
 }
 
-/* Optional: Card Container (if you want a nice layout) */
-.member-card, .spotlight-card {
-    background: white;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
 }
 
-.member-card:hover, .spotlight-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Optional: Container Layout */
-#directory, #spotlight {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
+.banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 5px;
 }

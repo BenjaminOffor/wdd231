@@ -38,7 +38,7 @@
                 <button id="search-btn">Search</button>
             </div>
 
-            <div>
+            <div class="view-toggle">
                 <p>Toggle View:</p>
                 <button id="gridViewBtn">Grid View</button>
                 <button id="listViewBtn">List View</button>
@@ -46,12 +46,89 @@
         </section>
 
         <section id="spotlight"></section>
-        <section id="directory"></section>
+        
+        <!-- Directory Content - Dynamically loaded -->
+        <section id="directory" class="grid-view">
+            <!-- Businesses will be inserted here via JavaScript -->
+        </section>
+
         <section id="dateDisplay"></section>
     </main>
 
     <footer>
         <p>&copy; 2025 Ghana Chamber of Commerce. All rights reserved.</p>
     </footer>
+
+    <script>
+        // JavaScript for grid/list toggle functionality
+        document.getElementById('gridViewBtn').addEventListener('click', function() {
+            document.getElementById('directory').classList.remove('list-view');
+            document.getElementById('directory').classList.add('grid-view');
+        });
+
+        document.getElementById('listViewBtn').addEventListener('click', function() {
+            document.getElementById('directory').classList.remove('grid-view');
+            document.getElementById('directory').classList.add('list-view');
+        });
+
+        // Sample data for directory (replace with dynamic content or external data)
+        const businesses = [
+            {
+                name: "Business One",
+                description: "A great business providing top services.",
+                logo: "images/business1.jpg",
+                website: "https://businessone.com"
+            },
+            {
+                name: "Business Two",
+                description: "Providing quality products for all.",
+                logo: "images/business2.jpg",
+                website: "https://businesstwo.com"
+            },
+            {
+                name: "Business Three",
+                description: "Your trusted partner in business solutions.",
+                logo: "images/business3.jpg",
+                website: "https://businessthree.com"
+            }
+        ];
+
+        // Function to load businesses into the directory section
+        function loadBusinesses() {
+            const directoryElement = document.getElementById('directory');
+            directoryElement.innerHTML = ''; // Clear existing content
+
+            businesses.forEach(business => {
+                const businessCard = document.createElement('div');
+                businessCard.classList.add('business-card');
+
+                const logo = document.createElement('img');
+                logo.classList.add('business-logo');
+                logo.src = business.logo;
+                logo.alt = business.name;
+
+                const name = document.createElement('h3');
+                name.textContent = business.name;
+
+                const description = document.createElement('p');
+                description.textContent = business.description;
+
+                const websiteLink = document.createElement('a');
+                websiteLink.href = business.website;
+                websiteLink.target = "_blank";
+                websiteLink.textContent = "Visit Website";
+
+                businessCard.appendChild(logo);
+                businessCard.appendChild(name);
+                businessCard.appendChild(description);
+                businessCard.appendChild(websiteLink);
+
+                directoryElement.appendChild(businessCard);
+            });
+        }
+
+        // Load businesses on page load
+        window.onload = loadBusinesses;
+    </script>
 </body>
 </html>

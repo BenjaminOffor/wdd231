@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Image
         const img = document.createElement("img");
-        img.src = member.image; // Use image path from JSON directly
+        img.src = `./${member.image}`; // Use image path from JSON directly
         img.alt = `${member.name} logo`;
         card.appendChild(img);
 

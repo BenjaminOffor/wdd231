@@ -119,8 +119,7 @@ main {
 
 #directory.list-view .member-card,
 #directory.list-view .spotlight-card {
-    width: 100%;  /* Ensure they take up the full width */
-    max-width: none;
+    width: 300px;  /* Fixed width for cards in list view */
     margin-bottom: 20px;  /* Space between cards */
 }
 
@@ -141,8 +140,7 @@ main {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 100%;
-    max-width: 300px;
+    width: 300px;  /* Fixed width for cards */
     transition: all 0.3s ease-in-out;
 }
 
@@ -259,7 +257,7 @@ footer a:hover {
 
     .member-card,
     .spotlight-card {
-        width: 100%;
+        width: 300px; /* Ensure consistent card width */
     }
 }
 

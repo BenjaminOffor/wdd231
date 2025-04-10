@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const members = await response.json();
             displayMembers(members);
             displaySpotlights(members);
-            displayDate(members); 
+            displayDate(); // Fixed: no argument needed
         } catch (error) {
             const errorMsg = `<p class="error">Failed to load member data. Please try again later.</p>`;
             directoryContainer.innerHTML = errorMsg;
@@ -48,83 +48,80 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("div");
         card.classList.add(isSpotlight ? "spotlight-card" : "member-card");
 
-        const memberImagePath = `images/${member.logo}`;
-        const img = new Image();
-        img.src = memberImagePath;
-        img.alt = `${member.name} Logo`;
-        img.loading = "lazy";
-        img.style.width = "100px";
-        img.style.height = "100px";
-        img.style.borderRadius = "50%";
+        const img = document.createElement("img");
+        img.src = member.image; // ✅ FIXED: Use member.image directly
+        img.alt = `${member.name} logo`;
 
-        img.onload = function() {
-            card.appendChild(img);
-        };
-        img.onerror = function() {
-            const defaultImg = `images/default.png`; // Fallback image
-            img.src = defaultImg;
-        };
+        const name = document.createElement("h2");
+        name.textContent = member.name;
 
-        card.innerHTML += `
-            <h2>${member.name}</h2>
-            <p><strong>Address:</strong> ${member.address}</p>
-            <p><strong>Phone:</strong> <a href="tel:${member.phone}">${member.phone}</a></p>
-            <p><strong>Website:</strong> <a href="${member.website}" target="_blank" rel="noopener noreferrer">${member.website}</a></p>
-            <p class="membership-level">Membership Level: ${member.level}</p>
-        `;
+        const address = document.createElement("p");
+        address.textContent = member.address;
+
+        const phone = document.createElement("p");
+        phone.textContent = member.phone;
+
+        const website = document.createElement("a");
+        website.href = member.website;
+        website.textContent = "Visit Website";
+        website.target = "_blank";
+        website.rel = "noopener noreferrer";
+
+        card.appendChild(img);
+        card.appendChild(name);
+        card.appendChild(address);
+        card.appendChild(phone);
+        card.appendChild(website);
+
         return card;
     }
 
     function shuffleArray(array) {
-        return array
-            .map(value => ({ value, sort: Math.random() }))
-            .sort((a, b) => a.sort - b.sort)
-            .map(({ value }) => value);
+        return array.sort(() => Math.random() - 0.5);
     }
 
-    if (gridBtn && listBtn && directoryContainer) {
-        gridBtn.addEventListener("click", () => {
-            directoryContainer.classList.add("grid-view");
-            directoryContainer.classList.remove("list-view");
-        });
-
-        listBtn.addEventListener("click", () => {
-            directoryContainer.classList.add("list-view");
-            directoryContainer.classList.remove("grid-view");
-        });
+    function displayDate() {
+        if (dateDisplay) {
+            const now = new Date();
+            dateDisplay.textContent = now.toLocaleDateString("en-GB", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+        }
     }
 
-    function displayDate(members) {
-        if (!dateDisplay) return;
-        const latestMember = members.reduce((latest, current) => {
-            const latestDate = latest.dateAdded ? new Date(latest.dateAdded) : new Date(0);
-            const currentDate = current.dateAdded ? new Date(current.dateAdded) : new Date(0);
-            return latestDate > currentDate ? latest : current;
-        });
+    // Toggle view buttons
+    gridBtn.addEventListener("click", () => {
+        directoryContainer.classList.add("grid-view");
+        directoryContainer.classList.remove("list-view");
+    });
 
-        const date = new Date(latestMember.dateAdded);
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const formattedDate = date.toLocaleDateString('en-US', options);
-        
-        dateDisplay.textContent = `Latest member added on: ${formattedDate}`;
-    }
+    listBtn.addEventListener("click", () => {
+        directoryContainer.classList.add("list-view");
+        directoryContainer.classList.remove("grid-view");
+    });
+
+    // Modal handling (optional, depending on your modals)
+    openLinks.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const modalId = link.getAttribute('href');
+            const modal = document.querySelector(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+            }
+        });
+    });
+
+    window.addEventListener('click', event => {
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
 
     fetchMembers();
-
-    openLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            const modalId = event.target.getAttribute('href').substring(1);
-            document.getElementById(modalId).style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
-    modals.forEach(modal => {
-        const closeButton = modal.querySelector('button');
-        closeButton.addEventListener('click', () => {
-            modal.style.display = 'none';
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        });
-    });
 });

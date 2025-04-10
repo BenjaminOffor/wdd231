@@ -108,6 +108,20 @@ main {
     gap: 20px;
     justify-items: center;
     margin-top: 20px;
+    transition: all 0.3s ease-in-out; /* Smooth transition for view change */
+}
+
+/* List View */
+#directory.list-view {
+    display: block;
+    margin-top: 20px;
+}
+
+#directory.list-view .member-card,
+#directory.list-view .spotlight-card {
+    width: 100%;  /* Ensure they take up the full width */
+    max-width: none;
+    margin-bottom: 20px;  /* Space between cards */
 }
 
 /* Spotlight Section */
@@ -236,23 +250,15 @@ footer a:hover {
     }
 
     #directory {
-        grid-template-columns: 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr; /* Stacked in a single column */
     }
 
-    #spotlight {
-        grid-template-columns: 1fr;
-        gap: 10px;
+    #directory.list-view {
+        display: block;
     }
 
     .member-card,
     .spotlight-card {
-        width: 100%;
-        max-width: none;
-    }
-
-    .grid-view .member-card,
-    .grid-view .spotlight-card {
         width: 100%;
     }
 }

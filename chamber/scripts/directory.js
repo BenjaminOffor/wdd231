@@ -5,9 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const listBtn = document.getElementById("listViewBtn");
     const dateDisplay = document.getElementById("dateDisplay");
 
-    const modals = document.querySelectorAll('.modal');
-    const openLinks = document.querySelectorAll('[data-toggle="modal"]');
-
     async function fetchMembers() {
         try {
             const response = await fetch("scripts/members.json");
@@ -15,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const members = await response.json();
             displayMembers(members);
             displaySpotlights(members);
-            displayDate(); // Fixed: no argument needed
+            displayDate();
         } catch (error) {
             const errorMsg = `<p class="error">Failed to load member data. Please try again later.</p>`;
             directoryContainer.innerHTML = errorMsg;
@@ -48,30 +45,38 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("div");
         card.classList.add(isSpotlight ? "spotlight-card" : "member-card");
 
+        // Image
         const img = document.createElement("img");
-        img.src = member.image; // ✅ FIXED: Use member.image directly
+        img.src = member.image; // Use image path from JSON directly
         img.alt = `${member.name} logo`;
+        card.appendChild(img);
 
-        const name = document.createElement("h2");
+        // Name
+        const name = document.createElement("h3");
         name.textContent = member.name;
+        card.appendChild(name);
 
+        // Address
         const address = document.createElement("p");
         address.textContent = member.address;
+        card.appendChild(address);
 
+        // Phone
         const phone = document.createElement("p");
         phone.textContent = member.phone;
+        card.appendChild(phone);
 
+        // Website
         const website = document.createElement("a");
         website.href = member.website;
         website.textContent = "Visit Website";
         website.target = "_blank";
-        website.rel = "noopener noreferrer";
-
-        card.appendChild(img);
-        card.appendChild(name);
-        card.appendChild(address);
-        card.appendChild(phone);
         card.appendChild(website);
+
+        // Level (optional: can add styles/classes here)
+        const level = document.createElement("p");
+        level.textContent = `Membership Level: ${member.level}`;
+        card.appendChild(level);
 
         return card;
     }
@@ -81,47 +86,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function displayDate() {
-        if (dateDisplay) {
-            const now = new Date();
-            dateDisplay.textContent = now.toLocaleDateString("en-GB", {
-                weekday: "long",
-                day: "numeric",
-                month: "long",
-                year: "numeric"
-            });
-        }
+        const now = new Date();
+        dateDisplay.textContent = now.toDateString();
     }
 
-    // Toggle view buttons
+    fetchMembers();
+
     gridBtn.addEventListener("click", () => {
-        directoryContainer.classList.add("grid-view");
-        directoryContainer.classList.remove("list-view");
+        directoryContainer.classList.add("grid");
+        directoryContainer.classList.remove("list");
     });
 
     listBtn.addEventListener("click", () => {
-        directoryContainer.classList.add("list-view");
-        directoryContainer.classList.remove("grid-view");
+        directoryContainer.classList.add("list");
+        directoryContainer.classList.remove("grid");
     });
-
-    // Modal handling (optional, depending on your modals)
-    openLinks.forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault();
-            const modalId = link.getAttribute('href');
-            const modal = document.querySelector(modalId);
-            if (modal) {
-                modal.style.display = 'block';
-            }
-        });
-    });
-
-    window.addEventListener('click', event => {
-        modals.forEach(modal => {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    });
-
-    fetchMembers();
 });

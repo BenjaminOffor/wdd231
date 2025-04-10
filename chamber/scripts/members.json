@@ -12,7 +12,7 @@
         "address": "45 Market Road, Kumasi, Ghana",
         "phone": "+233 54 987 6543",
         "website": "https://globaltraders.com",
-        "image": "global-traders.png",
+        "image": "images/global-traders.png",
         "level": "Silver"
     },
     {
@@ -20,7 +20,7 @@
         "address": "789 Eco Drive, Tamale, Ghana",
         "phone": "+233 20 876 5432",
         "website": "https://greenenergy.com",
-        "image": "green-energy.png",
+        "image": "images/green-energy.png",
         "level": "Member"
     },
     {
@@ -28,7 +28,7 @@
         "address": "102 Finance Ave, Takoradi, Ghana",
         "phone": "+233 55 345 6789",
         "website": "https://financehub.com",
-        "image": "finance-hub.png",
+        "image": "images/finance-hub.png",
         "level": "Gold"
     },
     {
@@ -36,7 +36,7 @@
         "address": "67 Agri Street, Cape Coast, Ghana",
         "phone": "+233 25 678 9012",
         "website": "https://agrotechfarms.com",
-        "image": "agrotech-farms.png",
+        "image": "images/agrotech-farms.png",
         "level": "Silver"
     },
     {
@@ -44,7 +44,7 @@
         "address": "88 Wellness Rd, Accra, Ghana",
         "phone": "+233 30 456 7890",
         "website": "https://healthcareplus.com",
-        "image": "healthcare-plus.png",
+        "image": "images/healthcare-plus.png",
         "level": "Member"
     },
     {
@@ -52,7 +52,7 @@
         "address": "150 Web Drive, Tema, Ghana",
         "phone": "+233 28 654 3210",
         "website": "https://digitalsolutions.com",
-        "image": "digital-solutions.png",
+        "image": "images/digital-solutions.png",
         "level": "Gold"
     }
 ]

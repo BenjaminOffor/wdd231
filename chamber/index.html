@@ -11,6 +11,7 @@
     <meta property="og:image" content="https://benjaminoffor.github.io/wdd231/chamber/images/banner.png">
     <meta property="og:url" content="https://benjaminoffor.github.io/wdd231/chamber/">
     <link rel="stylesheet" href="styles/directory.css">
+    <link rel="stylesheet" href="styles/styles.css"> <!-- Add main style -->
     <script defer src="scripts/weather.js"></script>
     <script defer src="scripts/spotlights.js"></script>
     <link rel="icon" href="images/favicon.ico">
@@ -28,6 +29,7 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero">
             <img src="images/hero.jpg" alt="Business in Ghana" class="hero-img">
             <div class="hero-text">
@@ -37,39 +39,51 @@
             </div>
         </section>
 
-        <section class="events">
-            <h2>Upcoming Events</h2>
-            <ul>
-                <li><strong>Business Expo Accra 2025</strong> – May 12-14, 2025</li>
-                <li><strong>Trade and Investment Forum</strong> – June 5, 2025</li>
-            </ul>
+        <!-- Spotlight Section -->
+        <section class="spotlight">
+            <h2>Spotlight Members</h2>
+            <div class="spotlight-container" id="spotlightContainer">
+                <!-- Dynamic spotlights will be injected by JavaScript -->
+            </div>
         </section>
 
+        <!-- Highlights / Services Section -->
+        <section class="highlights">
+            <h2>Our Services</h2>
+            <div class="highlight-cards">
+                <article class="highlight-card">
+                    <h3>Networking Events</h3>
+                    <p>Connect with other professionals at our regular networking events.</p>
+                </article>
+                <article class="highlight-card">
+                    <h3>Business Support</h3>
+                    <p>Access resources and support for your business growth and expansion.</p>
+                </article>
+                <article class="highlight-card">
+                    <h3>Advocacy</h3>
+                    <p>We represent and advocate for the interests of local businesses.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Weather Widget -->
         <section class="weather">
-            <h2>Current Weather in Accra</h2>
-            <div id="weather-info">
-                <!-- Weather data inserted by weather.js -->
-                <p>Loading weather...</p>
+            <h2>Current Weather</h2>
+            <div id="weatherWidget">
+                <!-- Weather information will be injected by JavaScript -->
             </div>
         </section>
 
-        <section class="spotlights">
-            <h2>Business Spotlights</h2>
-            <div class="spotlight-container" id="spotlight-container">
-                <!-- Spotlight businesses will load here via JS -->
-            </div>
-        </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="copyright-year"></span> Ghana Chamber of Commerce. All Rights Reserved.</p>
-        <p>Contact us at: info@ghanachamber.org | Phone: +233 24 851 5462</p>
-        <p id="last-modified"></p>
+        <p>&copy; <span id="year"></span> Ghana Chamber of Commerce. All rights reserved.</p>
+        <p>Contact us: <a href="mailto:info@ghanachamber.com">info@ghanachamber.com</a></p>
     </footer>
 
     <script>
-        document.getElementById("copyright-year").textContent = new Date().getFullYear();
-        document.getElementById("last-modified").textContent = `Last updated: ${document.lastModified}`;
+        // Dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

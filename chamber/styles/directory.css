@@ -6,44 +6,50 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
+    margin: 0;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0077cc;
 }
 
 /* Header Styles */
 header {
     background-color: #004d99;
-    padding: 1rem;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 header nav ul {
-    list-style-type: none;
+    list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
-}
-
-header nav ul li {
-    margin: 0;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 header nav ul li a {
     color: #fff;
     font-size: 1.1rem;
-    padding: 0.5rem;
-    transition: background-color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header nav ul li a:hover, header nav ul li a.active {
+header nav ul li a:hover,
+header nav ul li a.active {
     background-color: #003366;
-    border-radius: 4px;
+    color: #fff;
 }
 
 /* Hero Section */
@@ -51,24 +57,31 @@ header nav ul li a:hover, header nav ul li a.active {
     position: relative;
     width: 100%;
     height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     background-color: #003366;
     color: white;
-    text-align: center;
-    padding: 80px 20px;
 }
 
 .hero-img {
+    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 1rem;
 }
 
 .hero-text h1 {
@@ -82,186 +95,76 @@ header nav ul li a:hover, header nav ul li a.active {
 }
 
 .cta-button {
+    display: inline-block;
+    margin-top: 1.5rem;
     padding: 0.8rem 2rem;
-    background-color: #004d99;
+    background-color: #0077cc;
     color: white;
     font-size: 1.2rem;
     border: none;
-    border-radius: 5px;
-    margin-top: 1.5rem;
-    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button:hover {
-    background-color: #003366;
-}
-
-/* Main Section */
-main {
-    padding: 20px;
-}
-
-/* Directory Section */
-#directory {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    margin-top: 20px;
-    transition: all 0.3s ease-in-out; /* Smooth transition for view change */
-}
-
-/* List View */
-#directory.list-view {
-    display: block;
-    margin-top: 20px;
-}
-
-#directory.list-view .member-card,
-#directory.list-view .spotlight-card {
-    width: 300px;  /* Fixed width for cards in list view */
-    margin-bottom: 20px;  /* Space between cards */
+    background-color: #005fa3;
 }
 
 /* Spotlight Section */
-#spotlight {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-items: center;
-    margin-top: 20px;
+.spotlight {
+    background-color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Business Card Styles */
-.member-card,
-.spotlight-card {
-    background-color: white;
-    border: 1px solid #ddd;
+.spotlight h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #004d99;
+}
+
+.spotlight-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.spotlight-item {
+    background: #f4f4f4;
+    padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;  /* Fixed width for cards */
-    transition: all 0.3s ease-in-out;
+    flex: 1 1 250px;
+    text-align: left;
+    transition: transform 0.3s ease;
 }
 
-.member-card:hover,
-.spotlight-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.spotlight-item:hover {
+    transform: translateY(-5px);
 }
 
-.member-card img,
-.spotlight-card img {
-    width: 80px;           /* Fixed width for logos */
-    height: 80px;          /* Fixed height for logos */
-    object-fit: cover;     /* Ensures the logo covers the box properly */
-    border-radius: 50%;    /* Makes the image circular */
-    margin-bottom: 15px;   /* Space below the logo */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.spotlight-item img {
+    width: 100%;
+    border-radius: 8px;
 }
 
-/* Business Card Text */
-.member-card h3,
-.spotlight-card h3 {
-    font-size: 1.8rem;
-    color: #003366;
-    margin-bottom: 10px;
+.spotlight-item h3 {
+    margin-top: 0.75rem;
+    color: #333;
 }
 
-.member-card p,
-.spotlight-card p {
-    font-size: 1rem;
-    margin-bottom: 10px;
+.spotlight-item p {
+    margin: 0.5rem 0;
+    color: #555;
 }
 
-.member-card a,
-.spotlight-card a {
-    color: #004d99;
-    font-weight: 600;
-}
-
-.member-card a:hover,
-.spotlight-card a:hover {
-    text-decoration: underline;
-}
-
-/* View Toggle Button Styles */
-.view-toggle {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.view-toggle button {
-    padding: 0.8rem 2rem;
-    background-color: #004d99;
-    color: white;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 0 10px;
-}
-
-.view-toggle button:hover {
-    background-color: #003366;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #003366;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 1rem;
-}
-
-footer p {
-    margin-bottom: 10px;
-}
-
-footer a {
-    color: #004d99;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Media Queries for Responsiveness */
+/* Responsive Improvements */
 @media (max-width: 768px) {
-    header nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    header nav ul li {
-        margin: 10px 0;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-text p {
-        font-size: 1.2rem;
-    }
-
-    #directory {
-        grid-template-columns: 1fr; /* Stacked in a single column */
-    }
-
-    #directory.list-view {
-        display: block;
-    }
-
-    .member-card,
-    .spotlight-card {
-        width: 300px; /* Ensure consistent card width */
-    }
-}
-
-@media (max-width: 480px) {
     .hero-text h1 {
         font-size: 2rem;
     }
@@ -270,14 +173,7 @@ footer a:hover {
         font-size: 1rem;
     }
 
-    footer p {
-        font-size: 0.9rem;
+    header nav ul {
+        gap: 1rem;
     }
-}
-
-.banner-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 5px;
 }

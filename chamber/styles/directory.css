@@ -280,3 +280,22 @@ header nav ul li a.active {
         height: 120px;
     }
 }
+/* === Footer Styles === */
+footer {
+    background-color: #004d99; /* Restore the blue */
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #ffcc00; /* Optional: Add hover effect */
+}

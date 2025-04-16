@@ -1,17 +1,28 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const yearSpan = document.getElementById("year");
-    yearSpan.textContent = new Date().getFullYear();
+// Wait for the DOM to fully load before executing any scripts
+document.addEventListener('DOMContentLoaded', () => {
+    // Fetch the JSON data from the scripts folder
+    fetch('scripts/inspirehub.json')  // Update the path to reflect the correct location
+      .then(response => response.json()) // Parse the JSON data
+      .then(data => {
+        // Update the quote of the day with a random quote from the JSON
+        const quotes = data.quotes;
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const quoteOfTheDay = quotes[randomIndex];
+        
+        // Display the random quote in the blockquote with id 'quote'
+        const quoteElement = document.getElementById('quote');
+        quoteElement.textContent = quoteOfTheDay;
   
-    const quotes = [
-      "Believe you can and you're halfway there. — Theodore Roosevelt",
-      "Act as if what you do makes a difference. It does. — William James",
-      "Success is not how high you have climbed, but how you make a positive difference to the world. — Roy T. Bennett",
-      "Happiness is not something ready made. It comes from your own actions. — Dalai Lama",
-      "Don't watch the clock; do what it does. Keep going. — Sam Levenson"
-    ];
+        // Display the same random quote in the blockquote with id 'dailyQuote'
+        const dailyQuoteElement = document.getElementById('dailyQuote');
+        dailyQuoteElement.textContent = quoteOfTheDay;
   
-    const dailyQuote = document.getElementById("dailyQuote");
-    const quoteIndex = new Date().getDate() % quotes.length;
-    dailyQuote.textContent = quotes[quoteIndex];
+        // Update the year in the footer dynamically
+        const yearElement = document.getElementById('year');
+        yearElement.textContent = new Date().getFullYear();
+      })
+      .catch(error => {
+        console.error('Error fetching the JSON data:', error);
+      });
   });
   

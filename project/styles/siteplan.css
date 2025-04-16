@@ -1,0 +1,39 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E0F7FA;
+    color: #004D40;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  header {
+    text-align: center;
+    background-color: #004D40;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  h1, h2 {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  section {
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  }
+  
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
+  

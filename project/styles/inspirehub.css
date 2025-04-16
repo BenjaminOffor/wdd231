@@ -185,4 +185,7 @@ body {
   .read-toggle:hover {
     background-color: #005fa3;
   }
-       
+  html {
+    scroll-behavior: smooth;
+  }
+         

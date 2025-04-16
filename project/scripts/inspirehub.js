@@ -49,4 +49,59 @@ document.addEventListener('DOMContentLoaded', () => {
         `🎉 <strong>Goal:</strong> ${savedGoal}<br>📈 <strong>Progress:</strong> ${savedProgress}%`;
     }
   });
-    
+  async function loadAffirmations() {
+    const response = await fetch("scripts/affirmations.json");
+    const affirmations = await response.json();
+    const affirmationText = document.getElementById("affirmation-text");
+    const button = document.getElementById("new-affirmation");
+  
+    button.addEventListener("click", () => {
+      const random = affirmations[Math.floor(Math.random() * affirmations.length)];
+      affirmationText.textContent = random;
+    });
+  }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    loadAffirmations();
+  });
+  async function loadArticles() {
+    try {
+      const response = await fetch('scripts/articles.json');
+      const articles = await response.json();
+  
+      const container = document.getElementById('articles-section');
+      articles.forEach((article, index) => {
+        const articleDiv = document.createElement('div');
+        articleDiv.classList.add('article');
+  
+        const preview = article.content.slice(0, 150); // Preview first 150 characters
+  
+        articleDiv.innerHTML = `
+          <h3>${article.title}</h3>
+          <p><strong>By:</strong> ${article.author} | <em>${article.date}</em></p>
+          <p id="content-${index}">${preview}...<span class="more-text" style="display:none;">${article.content.slice(150)}</span></p>
+          <button class="read-toggle" data-index="${index}">Read More</button>
+        `;
+  
+        container.appendChild(articleDiv);
+      });
+  
+      document.querySelectorAll('.read-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const index = button.dataset.index;
+          const moreText = document.querySelector(`#content-${index} .more-text`);
+          if (moreText.style.display === 'none') {
+            moreText.style.display = 'inline';
+            button.textContent = 'Read Less';
+          } else {
+            moreText.style.display = 'none';
+            button.textContent = 'Read More';
+          }
+        });
+      });
+  
+    } catch (error) {
+      console.error("Failed to load articles:", error);
+    }
+  }
+        

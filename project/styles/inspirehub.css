@@ -142,4 +142,47 @@ body {
     font-weight: bold;
     color: #005f73;
   }
-    
+  .affirmation-section {
+    text-align: center;
+    padding: 2rem;
+    background-color: #e0f7fa;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 600px;
+  }
+  
+  .affirmation-section button {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    background-color: #00796b;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  #articles-section {
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .article {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+  
+  .read-toggle {
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .read-toggle:hover {
+    background-color: #005fa3;
+  }
+       

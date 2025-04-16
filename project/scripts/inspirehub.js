@@ -25,4 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error fetching the JSON data:', error);
       });
   });
+  document.getElementById("goalForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    
+    const goal = document.getElementById("goal").value;
+    const progress = document.getElementById("progress").value;
+    
+    // Save to localStorage (optional)
+    localStorage.setItem("userGoal", goal);
+    localStorage.setItem("goalProgress", progress);
   
+    document.getElementById("goalOutput").innerHTML =
+      `🎉 <strong>Goal:</strong> ${goal}<br>📈 <strong>Progress:</strong> ${progress}%`;
+  });
+  
+  // Load saved goal on page load
+  window.addEventListener("load", function () {
+    const savedGoal = localStorage.getItem("userGoal");
+    const savedProgress = localStorage.getItem("goalProgress");
+  
+    if (savedGoal && savedProgress) {
+      document.getElementById("goalOutput").innerHTML =
+        `🎉 <strong>Goal:</strong> ${savedGoal}<br>📈 <strong>Progress:</strong> ${savedProgress}%`;
+    }
+  });
+    

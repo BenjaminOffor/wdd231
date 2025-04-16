@@ -68,6 +68,23 @@
       <a href="#" class="cta-button">Join Challenge</a>
     </div>
   </section>
+  <section class="goal-tracker" id="goal-tracker">
+    <h2>🎯 Goal Tracker</h2>
+    <p>Set your personal or professional goals and track your progress.</p>
+    <form id="goalForm">
+      <label for="goal">Your Goal:</label>
+      <input type="text" id="goal" name="goal" placeholder="e.g. Read 20 pages daily" required>
+  
+      <label for="progress">Progress (%):</label>
+      <input type="range" id="progress" name="progress" min="0" max="100" value="0" step="10" oninput="progressValue.innerText = this.value + '%'">
+      <span id="progressValue">0%</span>
+  
+      <button type="submit">Save Goal</button>
+    </form>
+  
+    <div id="goalOutput" class="goal-output"></div>
+  </section>
+  
 
   <footer id="contact" class="footer">
     <div class="container">

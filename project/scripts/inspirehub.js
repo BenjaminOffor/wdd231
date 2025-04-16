@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener("DOMContentLoaded", () => {
     loadAffirmations();
   });
+
   async function loadArticles() {
     try {
       const response = await fetch('scripts/articles.json');
@@ -104,4 +105,5 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error("Failed to load articles:", error);
     }
   }
-        
+  document.addEventListener('DOMContentLoaded', loadArticles);
+      

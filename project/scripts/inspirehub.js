@@ -105,5 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error("Failed to load articles:", error);
     }
   }
-  document.addEventListener('DOMContentLoaded', loadArticles);
+    document.addEventListener('DOMContentLoaded', loadArticles);
+
       

@@ -1,0 +1,28 @@
+{
+    "siteName": "InspireHub",
+    "domain": "inspirehubdaily.com",
+    "purpose": "To provide motivation and support for individuals interested in self-development through daily quotes, articles, personal challenges, and goal tracking.",
+    "colors": {
+      "background": "#E0F7FA",
+      "header": "#004D40",
+      "card": "#FFFFFF",
+      "accent": "#FF9800"
+    },
+    "typography": {
+      "body": "Roboto",
+      "headings": "Playfair Display"
+    },
+    "scenarios": [
+      "Where can I find motivational quotes and personal development content daily?",
+      "How do I track my progress on a 30-day challenge or personal goal?",
+      "Which book should I read next to boost my productivity and mindset?"
+    ],
+    "quotes": [
+      "Believe you can and you're halfway there. — Theodore Roosevelt",
+      "Act as if what you do makes a difference. It does. — William James",
+      "Success is not how high you have climbed, but how you make a positive difference to the world. — Roy T. Bennett",
+      "Happiness is not something ready made. It comes from your own actions. — Dalai Lama",
+      "Don't watch the clock; do what it does. Keep going. — Sam Levenson"
+    ]
+  }
+  

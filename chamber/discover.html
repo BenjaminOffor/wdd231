@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Discover - Ghana Chamber of Commerce</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover Accra and explore key attractions through the Ghana Chamber of Commerce.">
+  <meta name="author" content="Benjamin Offor" />
+  <link rel="stylesheet" href="styles/discover.css" />
+  <script defer src="scripts/visitMessage.js"></script>
+  <link rel="icon" href="images/favicon.ico" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="discover.html" class="active">Discover</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="visitor-message" id="visitMessage">
+      <!-- Visit message will appear here -->
+    </aside>
+
+    <section class="discover-grid">
+      <!-- Dynamic content will be injected here by JavaScript -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Ghana Chamber of Commerce. All rights reserved.</p>
+    <p>📧 info@ghanachamber.com | 📞 +233 24 851 5462</p>
+    <p>Last modified: <span id="last-modified"></span></p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('last-modified').textContent = document.lastModified;
+  </script>
+</body>
+</html>

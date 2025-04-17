@@ -1,0 +1,60 @@
+.discover-grid {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  /* Mobile: 1 column */
+  @media (max-width: 640px) {
+    .discover-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Medium: 2 columns */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .discover-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Large: 4 columns */
+  @media (min-width: 1025px) {
+    .discover-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: scale(1.03);
+  }
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  .card h2 {
+    font-size: 1.2rem;
+    margin: 0.5rem;
+  }
+  .card address, .card p {
+    margin: 0.5rem 1rem;
+  }
+  .card button {
+    margin: auto 1rem 1rem 1rem;
+    padding: 0.5rem;
+    background: #004080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

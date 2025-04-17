@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Kwame Nkrumah Mausoleum",
+      "address": "High Street, Accra",
+      "description": "A memorial park dedicated to Ghana's first president.",
+      "image": "images/nkrumah.webp"
+    },
+    {
+      "name": "Independence Arch",
+      "address": "Independence Square, Accra",
+      "description": "An iconic monument celebrating Ghana's independence.",
+      "image": "images/independence.webp"
+    },
+    {
+      "name": "Makola Market",
+      "address": "Kojo Thompson Rd, Accra",
+      "description": "A bustling market offering a variety of goods and culture.",
+      "image": "images/makola.webp"
+    },
+    {
+      "name": "Labadi Beach",
+      "address": "La Rd, Accra",
+      "description": "Popular beach known for its music, food, and horse rides.",
+      "image": "images/labadi.webp"
+    },
+    {
+      "name": "Accra Mall",
+      "address": "Spintex Road, Accra",
+      "description": "Modern shopping and entertainment destination.",
+      "image": "images/accra_mall.webp"
+    },
+    {
+      "name": "National Theatre",
+      "address": "South Liberia Rd, Accra",
+      "description": "A hub for performing arts in Ghana.",
+      "image": "images/theatre.webp"
+    },
+    {
+      "name": "W.E.B. DuBois Center",
+      "address": "Cantonments, Accra",
+      "description": "Historical research center and mausoleum for DuBois.",
+      "image": "images/dubois.webp"
+    },
+    {
+      "name": "Jamestown Lighthouse",
+      "address": "Jamestown, Accra",
+      "description": "Historic site with a view of the coast and fishing community.",
+      "image": "images/jamestown.webp"
+    }
+  ]
+  

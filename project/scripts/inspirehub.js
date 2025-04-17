@@ -107,4 +107,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
     document.addEventListener('DOMContentLoaded', loadArticles);
 
-      
+    document.addEventListener('DOMContentLoaded', () => {
+      const trackButtons = document.querySelectorAll('.track-btn');
+      const goalInput = document.getElementById('goal');
+    
+      trackButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const goalText = button.getAttribute('data-goal');
+          goalInput.value = goalText;
+    
+          // Optional: Scroll to the Goal Tracker section
+          document.getElementById('goal-tracker').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    });
+    

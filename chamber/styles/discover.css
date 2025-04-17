@@ -1,60 +1,296 @@
-.discover-grid {
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-  }
-  
-  /* Mobile: 1 column */
-  @media (max-width: 640px) {
-    .discover-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  /* Medium: 2 columns */
-  @media (min-width: 641px) and (max-width: 1024px) {
-    .discover-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  /* Large: 4 columns */
-  @media (min-width: 1025px) {
-    .discover-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  
-  .card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0077cc;
+}
+
+/* Header Styles */
+header {
+    background-color: #004d99;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+header nav ul li a {
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    background-color: #003366;
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 400px;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease;
-  }
-  .card:hover {
-    transform: scale(1.03);
-  }
-  .card img {
-    width: 100%;
-    height: auto;
-  }
-  .card h2 {
-    font-size: 1.2rem;
-    margin: 0.5rem;
-  }
-  .card address, .card p {
-    margin: 0.5rem 1rem;
-  }
-  .card button {
-    margin: auto 1rem 1rem 1rem;
-    padding: 0.5rem;
-    background: #004080;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #003366;
     color: white;
+}
+
+.hero-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+    background-color: #0077cc;
+    color: white;
+    font-size: 1.2rem;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background-color: #005fa3;
+}
+
+/* Discover Section */
+.discover-header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #004d99;
+}
+
+.discover-text {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.discover-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.discover-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.discover-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.discover-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.discover-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #004d99;
+}
+
+.discover-item p {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.discover-item a {
+    margin-top: auto;
+    background-color: #004d99;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.discover-item a:hover {
+    background-color: #003366;
+}
+
+/* Spotlight Section */
+.spotlight {
+    background-color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.spotlight h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #004d99;
+}
+
+.spotlight-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.spotlight-item {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+    flex: 1 1 250px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.spotlight-item:hover {
+    transform: translateY(-5px);
+}
+
+.spotlight-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.spotlight-item h3 {
+    margin-top: 0.75rem;
+    color: #333;
+}
+
+.spotlight-item p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #004d99;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #ffcc00;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    header nav ul {
+        gap: 1rem;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 120px;
+    }
+
+    .discover-header {
+        font-size: 2rem;
+    }
+
+    .discover-item img {
+        height: 120px;
+    }
+
+    .spotlight-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
